@@ -1,7 +1,6 @@
 const path = require('path');
-const { Module } = require('webpack');
 
-Module.exports = {
+module.exports = {
     context: __dirname,
     entry: './frontend/index.jsx',
     output: {
@@ -18,7 +17,7 @@ Module.exports = {
                 exclude: /(node_modules)/,
                 use: {
                     loader: 'babel-loader',
-                    query: {
+                    options: {
                         presets: ['@babel/env', '@babel/react']
                     }
                 },
