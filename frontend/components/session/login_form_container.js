@@ -11,7 +11,8 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
     return {
-        formAction: user => dispatch(login(user))
+        formAction: user => dispatch(login(user)),
+        demoAction: user => dispatch(login(user))
     }
 }
 

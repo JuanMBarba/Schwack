@@ -9,6 +9,7 @@ import React from "react";
                 password:""
             }
             this.handleSubmit = this.handleSubmit.bind(this);
+            this.handleDemoLogin = this.handleDemoLogin.bind(this);
             this.renderDisplayNameInput = this.renderDisplayNameInput.bind(this);
         }
 
@@ -19,6 +20,16 @@ import React from "react";
                     <input onChange={this.update("displayName")} type="text" value={this.state.displayName}/>
                 </label>
             )
+        }
+
+        handleDemoLogin(e){
+            e.preventDefault();
+            const demoUser = {
+                displayName: "Demo User",
+                email: "demo@mail.com",
+                password: "123456"
+            }
+            this.props.demoAction(demoUser)
         }
 
         handleSubmit(e){
@@ -47,6 +58,7 @@ import React from "react";
                         </label>
                         <button>{this.props.formType}</button>
                     </form>
+                    <button onClick={this.handleDemoLogin}>Demo Login</button>
                     <div className="form-errors">
                         <ul>
                             {this.props.errors.map((error, index) => {
