@@ -31,6 +31,7 @@ import React from "react";
         }
 
         render() {
+            console.log(this.props);
             return (
                 <div>
                     <h1>{this.props.formType}</h1>
