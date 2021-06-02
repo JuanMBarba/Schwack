@@ -62,7 +62,7 @@ import React from "react";
                     <div className="form-errors">
                         <ul>
                             {this.props.errors.map((error, index) => {
-                                return <li key={index}>error</li>
+                                return <li key={index}>{error}</li>
                             })}
                         </ul>
                     </div>
