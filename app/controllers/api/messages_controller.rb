@@ -16,9 +16,21 @@ class Api::MessagesController < ApplicationController
     end
 
     def update
+        @message = Message.find_by(id: params[:id])
+        if @message.update(user_params)
+            render "api/messages/show"
+        else
+            render json: @message.errors.full_messages, status: 422
+        end
     end
 
     def destroy
+        @message = Message.find_by(id: params[:id])
+        if @message.destroy
+            render "api/messages/show"
+        else
+            render json: ["Message does not exist"], status: 404
+        end
     end
 
     private
