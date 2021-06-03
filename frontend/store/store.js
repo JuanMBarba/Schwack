@@ -7,7 +7,7 @@ const configureStore = (preloadedState = {}) => {
     return createStore(
         rootReducer,
         preloadedState,
-        applyMiddleware(thunk, logger))
+        applyMiddleware(thunk)) //Logger Removed For Production App
 }
 
 export default configureStore;
