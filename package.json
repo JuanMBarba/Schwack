@@ -10,8 +10,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch --mode=development",
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "start": "webpack --watch --mode=development"
   },
   "engines": {
     "node": "15.14.0",
@@ -38,9 +38,11 @@
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "redux": "^4.1.0",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0"
+  },
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
   }
 }
