@@ -18,6 +18,11 @@ class User < ApplicationRecord
     attr_reader :password
     before_validation :ensure_session_token
 
+    has_many :messages,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Message
+
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         if user && user.is_password?(password)
