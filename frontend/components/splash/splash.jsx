@@ -17,7 +17,7 @@ class Splash extends React.Component {
             return (
                 <div className="splash-header">
                     <h1>Schwack</h1>
-                    <h2>Welcome, {this.props.user.display_name}</h2>
+                    <h2>Welcome, {this.props.user.displayName}</h2>
                     <button onClick={()=>this.props.logout()}>Logout</button>
                 </div>
             )
