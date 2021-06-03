@@ -6,7 +6,7 @@ class SessionForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            displayName: "",
+            display_name: "",
             email:"",
             password:""
         }
@@ -24,7 +24,7 @@ class SessionForm extends React.Component {
         return (
             <label>
                 Display Name:
-                <input onChange={this.update("displayName")} type="text" value={this.state.displayName}/>
+                <input onChange={this.update("display_name")} type="text" value={this.state.displayName}/>
             </label>
         )
     }
@@ -51,7 +51,7 @@ class SessionForm extends React.Component {
     renderSessionFormSwitchLink(){
         if( this.props.formType === "Sign Up"){
             return (
-                <div>
+                <div className="form-switch">
                     <p>Have an account?</p>
                     <Link to="/login">Login</Link>
                 </div>
@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
         }
         else {
             return (
-                <div>
+                <div className="form-switch">
                     <p>Need an account?</p>
                     <Link to="/signup">Sign Up</Link>
                 </div>
@@ -68,13 +68,15 @@ class SessionForm extends React.Component {
     }
 
     render() {
+        console.log(this.state);
         return (
-            <div>
+            <div className="form-container">
                 <div className="form-header">
                     <Link to="/">
                         <h1>Schwack</h1>
                     </Link>
                 </div>
+                
                 <h1>{this.props.formType}</h1>
                 <form onSubmit={this.handleSubmit}>
                     {this.props.formType === "Sign Up" ? this.renderDisplayNameInput():""}
@@ -88,6 +90,7 @@ class SessionForm extends React.Component {
                     </label>
                     <button>{this.props.formType}</button>
                 </form>
+                
                 <button onClick={this.handleDemoLogin}>Demo Login</button>
                 {this.renderSessionFormSwitchLink()}
                 <SessionFormErrors errors={this.props.errors} />
