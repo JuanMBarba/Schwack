@@ -1,6 +1,6 @@
 class Channel < ApplicationRecord
     validates :name, presence: true
-    validates :dm_channel, presence: true, inclusion: { in: [true, false]}
+    validates :dm_channel, inclusion: { in: [true, false]}
 
     has_many :messages,
         primary_key: :id,
