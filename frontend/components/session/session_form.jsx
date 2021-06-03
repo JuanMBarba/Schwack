@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemoLogin = this.handleDemoLogin.bind(this);
         this.renderDisplayNameInput = this.renderDisplayNameInput.bind(this);
+        this.renderSessionFormSwitchLink = this.renderSessionFormSwitchLink.bind(this);
     }
 
     componentDidMount(){
@@ -47,8 +48,26 @@ class SessionForm extends React.Component {
         return e => this.setState({[field]: e.target.value})
     }
 
+    renderSessionFormSwitchLink(){
+        if( this.props.formType === "Sign Up"){
+            return (
+                <div>
+                    <p>Have an account?</p>
+                    <Link to="/login">Login</Link>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div>
+                    <p>Need an account?</p>
+                    <Link to="/signup">Sign Up</Link>
+                </div>
+            )
+        }
+    }
+
     render() {
-        console.log(this.props);
         return (
             <div>
                 <div className="form-header">
@@ -70,6 +89,7 @@ class SessionForm extends React.Component {
                     <button>{this.props.formType}</button>
                 </form>
                 <button onClick={this.handleDemoLogin}>Demo Login</button>
+                {this.renderSessionFormSwitchLink()}
                 <SessionFormErrors errors={this.props.errors} />
             </div>
         )
