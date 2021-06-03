@@ -6,7 +6,8 @@
     background-color: grey;
     width: 50%;
     margin: auto;
-    margin-top: 30%;
+    margin-top: 10%;
+    margin-bottom: 10%;
     padding: 5%;
     button {
         background-color: $blue;
@@ -39,7 +40,7 @@
 }
 
 .form-errors{
-    color:firebrick;
+    color: darkred;
 }
 
 .form-switch{
@@ -48,6 +49,6 @@
     justify-content: space-around;
     margin: 10px 0 10px 0;
 }
-.form-switch:last-child{
-    color: red;
+.form-switch button{
+    text-decoration: dodgerblue;
 }

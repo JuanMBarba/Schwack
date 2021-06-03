@@ -53,7 +53,11 @@ class SessionForm extends React.Component {
             return (
                 <div className="form-switch">
                     <p>Have an account?</p>
-                    <Link to="/login">Login</Link>
+                    <Link to="/login">
+                        <button>
+                            Login
+                        </button>
+                    </Link>
                 </div>
             )
         }
@@ -61,7 +65,11 @@ class SessionForm extends React.Component {
             return (
                 <div className="form-switch">
                     <p>Need an account?</p>
-                    <Link to="/signup">Sign Up</Link>
+                    <Link to="/signup">
+                        <button>
+                            Sign Up
+                        </button>
+                    </Link>
                 </div>
             )
         }
@@ -71,11 +79,13 @@ class SessionForm extends React.Component {
         console.log(this.state);
         return (
             <div className="form-container">
-                <div className="form-header">
-                    <Link to="/">
+                
+                <Link to="/">
+                    <div className="form-header">
                         <h1>Schwack</h1>
-                    </Link>
-                </div>
+                    </div>
+                </Link>
+                
                 
                 <h1>{this.props.formType}</h1>
                 <form onSubmit={this.handleSubmit}>
