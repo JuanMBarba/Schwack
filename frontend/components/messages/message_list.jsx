@@ -1,5 +1,6 @@
 import React from "react";
-import MessageFormContainer from "./message_form_container"
+import MessageFormContainer from "./message_form_container";
+import MessageListItemContainer from "./message_list_item_container";
 
 class MessageList extends React.Component{
     constructor(props){
@@ -50,7 +51,9 @@ class MessageList extends React.Component{
             return (
                 <li key={index}>
                     {/* {users[message.id].display_name} */}
-                    {message.userId}: {message.body}
+                    {/* {message.userId}: {message.body}
+                     */}
+                    <MessageListItemContainer message={message} />
                     <div ref={this.bottom} />
                 </li>
             )
@@ -59,9 +62,9 @@ class MessageList extends React.Component{
         return (
             <div>
                 <div ref={this.bottom} />
-                <div className="message-list">
+                <ul className="message-list">
                     {messageList}
-                </div>
+                </ul>
                 <MessageFormContainer />
             </div>
         )
