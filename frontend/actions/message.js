@@ -45,18 +45,18 @@ export const fetchMessages = () => dispatch =>  {
 export const createMessage = (message) => dispatch =>  {
     return MessageAPIUtil.createMessage(message)
         .then(message => dispatch(receiveMessage(message)))
-        .fail(errors => dispatch(receiveMessageErrors(errors)))
+        .fail(errors => dispatch(receiveMessageErrors(errors.responseJSON)))
 }
 
 export const updateMessage = (message) => dispatch =>  {
     return MessageAPIUtil.updateMessage(message)
         .then(message => dispatch(receiveMessage(message)))
-        .fail(errors => dispatch(receiveMessageErrors(errors)))
+        .fail(errors => dispatch(receiveMessageErrors(errors.responseJSON)))
 }
 
 export const deleteMessage = (messageId) => dispatch =>  {
     return MessageAPIUtil.deleteMessage(messageId)
         .then(message => dispatch(removeMessage(message.id)))
-        .fail(errors => dispatch(receiveMessageErrors(errors)))
+        .fail(errors => dispatch(receiveMessageErrors(errors.responseJSON)))
 }
 
