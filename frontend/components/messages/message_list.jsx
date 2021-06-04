@@ -10,16 +10,23 @@ class MessageList extends React.Component{
 
     componentDidMount(){
         this.props.fetchMessages();
+        this.props.fetchUsers();
+        // const fetchMessages = this.props.fetchMessages.bind(this)
 
-        const fetchMessages = this.props.fetchMessages.bind(this)
         App.cable.subscriptions.create(
             { channel: "ChatChannel" },
             {
                 received: data => {
-                    this.setState({
-                        messages: this.state.messages.concat(data)
-                    });
-                    //fetchMessages();
+                    // this.setState({
+                    //     messages: this.state.messages.concat(data)
+                    // });
+
+                    if (data.message.userId !== this.props.currentUser.id){
+
+                        this.props.receiveMessage(data.message);
+                    }
+                    // fetchMessages();
+                    // Need to receive message instead
                     // this.props.createMessage(data);
                 },
                 speak: function (data) {
@@ -36,9 +43,9 @@ class MessageList extends React.Component{
     }
 
     render(){
-        // const { messages, users } = this.props;
-        const messageList = this.state.messages.map((message,index) => {
-        // const messageList = Object.values(messages).map(message => {
+        const { messages, users } = this.props;
+        // const messageList = this.state.messages.map((message,index) => {
+        const messageList = Object.values(messages).map((message, index) => {
             // Might make this a messageitem container
             return (
                 <li key={index}>
@@ -51,8 +58,8 @@ class MessageList extends React.Component{
 
         return (
             <div>
+                <div ref={this.bottom} />
                 <div className="message-list">
-                    <li key="0"><div ref={this.bottom} /></li>
                     {messageList}
                 </div>
                 <MessageForm createMessage={this.props.createMessage} currentUser={this.props.currentUser} />

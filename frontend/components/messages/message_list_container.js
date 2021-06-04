@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
-import { createMessage, fetchMessages } from "../../actions/message"
-import MessageList from "./message_list"
+import { createMessage, fetchMessages, receiveMessage} from "../../actions/message";
+import { fetchUsers } from "../../actions/user";
+import MessageList from "./message_list";
 
 const mSTP = (state) => {
     return {
@@ -12,7 +13,9 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
     return {
         fetchMessages: () => dispatch(fetchMessages()),
-        createMessage: message => dispatch(createMessage(message))
+        fetchUsers: () => dispatch(fetchUsers()),
+        createMessage: message => dispatch(createMessage(message)),
+        receiveMessage: message => dispatch(receiveMessage(message))
     }
 }
 

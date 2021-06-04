@@ -14,7 +14,7 @@ const receiveMessages = (messages) => {
     }
 }
 
-const receiveMessage = (message) => {
+export const receiveMessage = (message) => {
     return {
         type: RECEIVE_MESSAGE,
         message
@@ -45,6 +45,7 @@ export const fetchMessages = () => dispatch =>  {
 export const createMessage = (message) => dispatch =>  {
     return MessageAPIUtil.createMessage(message)
         .then(message => dispatch(receiveMessage(message)))
+        .then(data => App.cable.subscriptions.subscriptions[0].speak(data))
         .fail(errors => dispatch(receiveMessageErrors(errors.responseJSON)))
 }
 
