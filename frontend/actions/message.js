@@ -16,7 +16,7 @@ const receiveMessages = (messages) => {
 
 const receiveMessage = (message) => {
     return {
-        type: RECEIVE_MESSAGES,
+        type: RECEIVE_MESSAGE,
         message
     }
 }
