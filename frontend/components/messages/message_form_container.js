@@ -4,7 +4,7 @@ import { createMessage } from "../../actions/message";
 
 const mSTP = (state) => {
     return {
-        
+        currentUser: state.entities.users[state.session.id]
     }
 } 
 

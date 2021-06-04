@@ -14,7 +14,6 @@ const mDTP = (dispatch) => {
     return {
         fetchMessages: () => dispatch(fetchMessages()),
         fetchUsers: () => dispatch(fetchUsers()),
-        createMessage: message => dispatch(createMessage(message)),
         receiveMessage: message => dispatch(receiveMessage(message))
     }
 }

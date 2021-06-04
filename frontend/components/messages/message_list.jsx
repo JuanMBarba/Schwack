@@ -1,5 +1,5 @@
 import React from "react";
-import MessageForm from "./message_form"
+import MessageFormContainer from "./message_form_container"
 
 class MessageList extends React.Component{
     constructor(props){
@@ -62,7 +62,7 @@ class MessageList extends React.Component{
                 <div className="message-list">
                     {messageList}
                 </div>
-                <MessageForm createMessage={this.props.createMessage} />
+                <MessageFormContainer />
             </div>
         )
         
