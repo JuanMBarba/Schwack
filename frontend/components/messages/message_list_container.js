@@ -7,7 +7,7 @@ const mSTP = (state) => {
     return {
         users: state.entities.users,
         messages: state.entities.messages,
-        currentUser: state.entities.users[state.session.id]
+        currentUserId: state.session.id
     }
 }
 const mDTP = (dispatch) => {

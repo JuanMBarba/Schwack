@@ -21,7 +21,7 @@ class MessageList extends React.Component{
                     //     messages: this.state.messages.concat(data)
                     // });
 
-                    if (data.message.userId !== this.props.currentUser.id){
+                    if (data.message.userId !== this.props.currentUserId){
 
                         this.props.receiveMessage(data.message);
                     }
@@ -62,7 +62,7 @@ class MessageList extends React.Component{
                 <div className="message-list">
                     {messageList}
                 </div>
-                <MessageForm createMessage={this.props.createMessage} currentUser={this.props.currentUser} />
+                <MessageForm createMessage={this.props.createMessage} />
             </div>
         )
         
