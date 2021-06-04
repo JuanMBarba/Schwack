@@ -7,6 +7,8 @@ import SplashContainer from "./splash/splash_container";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import { AuthRoute, ProtectedRoute } from "../util/route";
+import MessageListContainer from "./messages/message_list_container";
+
 const App = () => {
     return (
         <div>
@@ -14,6 +16,7 @@ const App = () => {
                 <AuthRoute exact path='/login' component={LoginFormContainer} />
                 <AuthRoute exact path='/signup' component={SignupFormContainer} />
                 <Route exact path='/' component={SplashContainer} />
+                <Route path='/liveChat' component={MessageListContainer}/>
                 <Redirect to="/"/>
             </Switch>
         </div>
