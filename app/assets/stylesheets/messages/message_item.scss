@@ -1,9 +1,29 @@
+.message-list-container{
+    width: 70%;
+    margin: auto;
+}
+
+.message-list{
+    overflow-y: scroll;
+    height: 700px;
+}
+
+.message-form-container{
+    overflow-y: scroll;
+    height: 30%;
+}
+
 .message-item, .message-form-container {
     display: flex;
     flex-direction: column;
     background-color:whitesmoke;
     padding: 20px;
     margin: 20px;
+    border-radius: 5px;
+}
+
+.message-item:hover {
+    background-color:rgb(238, 235, 235);
 }
 
 .message-item-header{
@@ -14,7 +34,12 @@
 
 .message-form-container button{
     background-color: $blue;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px;
     margin-left: 10px;
+    cursor: pointer;
+}
+
+.message-form-container button:hover{
+    background-color: #2ebcf5;
 }
