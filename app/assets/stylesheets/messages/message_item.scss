@@ -1,0 +1,20 @@
+.message-item, .message-form-container {
+    display: flex;
+    flex-direction: column;
+    background-color:whitesmoke;
+    padding: 20px;
+    margin: 20px;
+}
+
+.message-item-header{
+    margin-bottom: 10px;
+    color: blue;
+    font-weight: 700;
+}
+
+.message-form-container button{
+    background-color: $blue;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 10px;
+}

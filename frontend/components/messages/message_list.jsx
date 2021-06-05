@@ -47,7 +47,7 @@ class MessageList extends React.Component{
         })
 
         return (
-            <div>
+            <div className="message-list-container">
                 <div ref={this.bottom} />
                 <ul className="message-list">
                     {messageList}

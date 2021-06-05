@@ -3,7 +3,9 @@ import React from "react";
 class MessageListItem extends React.Component {
 
     componentDidMount(){
-        this.props.fetchUser(this.props.message.userId)
+        if (this.props.users[this.props.message.userId] === undefined){
+            this.props.fetchUser(this.props.message.userId)
+        }
     }
 
     render(){
