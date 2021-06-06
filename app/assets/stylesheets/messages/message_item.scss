@@ -5,12 +5,12 @@
 
 .message-list{
     overflow-y: scroll;
-    height: 700px;
+    height: 90vh;
 }
 
 .message-form-container{
-    overflow-y: scroll;
-    height: 30%;
+    // overflow-y: scroll;
+    height: 10vh;
 }
 
 .message-item, .message-form-container {
@@ -18,8 +18,8 @@
     flex-direction: column;
     background-color:whitesmoke;
     padding: 20px;
-    margin: 20px;
-    border-radius: 5px;
+    // margin: 20px;
+    // border-radius: 5px;
 }
 
 .message-item:hover {

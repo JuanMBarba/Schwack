@@ -5,7 +5,8 @@ $yellow: #FDE74C;
 $peach: #FAC9B8;
 $light-purple: #D4AFB9;
 
-$font: 'Roboto', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+$font: 'Noto Sans KR', sans-serif;
 
 body {
     font-family: $font;
