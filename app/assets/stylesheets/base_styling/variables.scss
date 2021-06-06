@@ -1,11 +1,13 @@
 $grey: #4C5760;
 $blue: #30C5FF;
+$dark-blue: rgb(22, 22, 223);
+$darker-blue: rgb(0, 0, 170);
 $light-green: #BFF0D4;
 $yellow: #FDE74C;
 $peach: #FAC9B8;
 $light-purple: #D4AFB9;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
 $font: 'Noto Sans KR', sans-serif;
 
 body {

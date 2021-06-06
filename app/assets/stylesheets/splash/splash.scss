@@ -1,28 +1,70 @@
 .splash-header {
     display: flex;
     justify-content: space-between;
-    background-color: $blue;
+    background-color: rgb(220, 240, 243);
+    // height: 8vh;
 }
 
 .splash-header-right {
-    width: 30%;
+    width: 30vw;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
 
-    .button {
-        background-color: $peach;
-        padding: 5px;
+    .splash-button {
+        background-color:rgb(22, 22, 223);
+        // border: 2px solid white;
+        font-weight: 500;
+        // font-size: 15px;
+        border-radius: 5px;
+        color: rgb(220, 240, 243);
+        padding: 7px 13px 7px 13px;
+        // padding: .75rem 1rem;
         margin: 10px;
+        cursor: pointer;
+    }
+
+    .splash-button:hover {
+        background-color:rgb(0, 0, 170);
+    }
+
+    .alt-splash-button {
+        // background-color:rgb(22, 22, 223);
+        border: 1px solid $dark-blue;
+        font-weight: 500;
+        // font-size: 15px;
+        border-radius: 5px;
+        color: $dark-blue;
+        padding: 6px 12px;
+        // padding: .75rem 1rem;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+    .alt-splash-button:hover {
+        // background-color:rgb(0, 0, 170);
+        border: 2px solid $dark-blue;
+        padding: 5px 11px;
     }
 }
 
 .splash-logo {
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    background-color: $peach;
+    // background-color: $peach;
     font-size: x-large;
     font-weight: 700;
     padding: 5px;
     margin: 5px;
     margin-left: 5%;
+    width: 10vw;
+    h1 {
+        font-size: xx-large;
+    }
+    img {
+        width: 30px;
+        margin-right: 5px;
+        margin-top: 5px;
+    }
 }
 
