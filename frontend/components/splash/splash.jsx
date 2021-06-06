@@ -16,6 +16,7 @@ class Splash extends React.Component {
                             SIGN UP
                         </div>
                     </Link>
+                    <button className="splash-button" onClick={() => this.props.demoLogin()}>DEMO LOGIN</button>
                 </div>
             )
         }
@@ -23,7 +24,7 @@ class Splash extends React.Component {
             return (
                 <div className="splash-header-right">
                     <h2>Welcome, {this.props.user.displayName}</h2>
-                    <button className="button" onClick={()=>this.props.logout()}>LOGOUT</button>
+                    <button className="splash-button" onClick={()=>this.props.logout()}>LOGOUT</button>
                 </div>
             )
         }
