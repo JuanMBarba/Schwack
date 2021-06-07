@@ -1,12 +1,13 @@
 .splash-header {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(220, 240, 243);
+    // background-color: rgb(220, 240, 243);
     // height: 8vh;
+    border-bottom:  1px solid white;
 }
 
 .splash-header-right {
-    width: 40vw;
+    width: 65vw;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -17,12 +18,14 @@
         font-weight: 500;
         // font-size: 15px;
         border-radius: 5px;
-        color: rgb(220, 240, 243);
+        // color: rgb(220, 240, 243);
+        color: white;
         padding: 7px 13px 7px 13px;
         // padding: .75rem 1rem;
         margin: 10px;
         cursor: pointer;
         // height: 6vh;
+        text-align: center;
     }
 
     .splash-button:hover {
@@ -70,3 +73,20 @@
     }
 }
 
+.splash-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 75px;
+    // text-transform: uppercase;
+}
+
+.bigger-logo{
+    display: flex;
+    justify-content: center;
+    // text-transform: lowercase;
+    font-size: 75px;
+    img {
+        width: 100px
+    }
+}

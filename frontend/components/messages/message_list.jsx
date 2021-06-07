@@ -47,12 +47,23 @@ class MessageList extends React.Component{
         })
 
         return (
-            <div className="message-list-container">
-                <div ref={this.bottom} />
-                <ul className="message-list">
-                    {messageList}
-                </ul>
-                <MessageFormContainer />
+            // Made a temp div in order to have a header here
+            // will move later when I have a component that encapsulates
+            // this one
+            <div className="temp-div">
+                {/* tempheader for logout */}
+                <div className="workspace-header">
+                    {/* <div className="splash-header-right"> */}
+                        <button className="header-button" onClick={() => this.props.logout()}>LOGOUT</button>
+                    {/* </div> */}
+                </div>
+                <div className="message-list-container">
+                    <div ref={this.bottom} />
+                    <ul className="message-list">
+                        {messageList}
+                    </ul>
+                    <MessageFormContainer />
+                </div>
             </div>
         )
         

@@ -5,12 +5,26 @@
 
 .message-list{
     overflow-y: scroll;
-    height: 90vh;
+    height: 85vh;
 }
 
 .message-form-container{
     // overflow-y: scroll;
+    
     height: 10vh;
+    form {
+        border: 1px solid grey;
+        border-radius: 3px;
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+    
+    }
+
+    input {
+        width: 70%;
+        padding: 5px;
+    }
 }
 
 .message-item, .message-form-container {
@@ -20,6 +34,10 @@
     padding: 20px;
     // margin: 20px;
     // border-radius: 5px;
+    > form {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .message-item:hover {
@@ -28,18 +46,53 @@
 
 .message-item-header{
     margin-bottom: 10px;
-    color: blue;
+    // color: blue;
     font-weight: 700;
 }
 
 .message-form-container button{
-    background-color: $blue;
-    border-radius: 5px;
-    padding: 10px;
-    margin-left: 10px;
-    cursor: pointer;
+    // background-color: $blue;
+    // border-radius: 3px;
+    // padding: 5px;
+    // margin-left: 10px;
+    // cursor: pointer;
+    // height: 70%;
+    // text-align: center;
+    // padding-bottom: 10px;
+    color: grey;
+    // background-color: black;
+    padding: 1px 3px;
+    border-radius: 3px;
+    margin-right: 5px;
 }
 
 .message-form-container button:hover{
-    background-color: #2ebcf5;
+    background-color: $dark-blue;
+    color: white;
+}
+
+.workspace-header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 5vh;
+    background-color: $darker-blue;
+    border-bottom: 2px solid $dark-blue;
+    .header-button{
+        border: 1px solid white;
+        font-weight: 400;
+        font-size: 15px;
+        border-radius: 5px;
+        color: white;
+        padding: 3px 8px;
+        // padding: .75rem 1rem;
+        // margin: 10px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+    .header-button:hover {
+        border: 2px solid white;
+        // font-weight: 500;
+        padding: 2px 7px;
+    }
 }

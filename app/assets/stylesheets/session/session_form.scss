@@ -3,40 +3,83 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: grey;
-    width: 50%;
+    // background-color: grey;
+    width: 500px;
+    height: 500px;
     margin: auto;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 10vh;
+    // margin-bottom: 40vh;
     padding: 5%;
+
     button {
-        background-color: $blue;
+        background-color:$dark-blue;
+        // border: 2px solid white;
+        font-weight: 500;
+        // font-size: 15px;
+        border-radius: 5px;
+        // color: rgb(220, 240, 243);
+        color: white;
+        padding: 7px 13px 7px 13px;
+        // padding: .75rem 1rem;
+        margin: 10px;
         cursor: pointer;
-        padding: 5px;
+        // height: 6vh;
+        width: 100%;
+        text-align: center;
     }
 
+    button:hover {
+        // border: 2px solid $dark-blue;
+        // padding: 5px 11px;
+        background-color: $darker-blue;
+    }
+
+    // button {
+    //     background-color: $blue;
+    //     cursor: pointer;
+    //     padding: 5px;
+    // }
+
     > h1 {
-        font-size: large;
+        font-size: x-large;
         padding: 10px;
     }
 }
 
 .form-header{
-    background-color: $blue;
-    font-size: x-large;
+    // background-color: $blue;
+    display: flex;
+    text-transform: lowercase;
+    font-size: xx-large;
     font-weight: 700;
     padding: 10px;
+    align-items: center;
+    img{
+        width: 30px;
+        margin-right: 5px;
+        margin-top: 5px;
+    }
 }
 
 .form-container form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    > * {
+    > label {
         padding: 5px;
-        margin-bottom: 5px;
+        margin-bottom: 15px;
+        width: 100%;
     }
-    margin: 5px;
+    input {
+        // width: 500px;
+        background-color: white;
+        border: 1px solid grey;
+        border-radius: 5px;
+        width: 100%;
+        height: 40px;
+        padding-left: 10px;
+    }
+    // margin: 5px;
 }
 
 .form-errors{
@@ -47,6 +90,7 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
+    align-items: center;
     margin: 10px 0 10px 0;
 }
 .form-switch button{

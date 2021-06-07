@@ -41,7 +41,16 @@ class Splash extends React.Component {
                     {this.renderHeader()}
                 </div>
                 <div className="splash-body">
-
+                    <h1>JOIN IN</h1>
+                    <h2>on the</h2>
+                    <h1>WORK CHAT</h1>
+                    <h2>now on</h2>
+                    <Link to="/signup">
+                        <div className="splash-logo bigger-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Solid_unicursal_hexagram.svg/1280px-Solid_unicursal_hexagram.svg.png" src-alt="logo img" />
+                            <h2>schwack</h2>
+                        </div>
+                    </Link>
                 </div>
             </div>
         )

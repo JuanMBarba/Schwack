@@ -30,8 +30,9 @@ class MessageForm extends React.Component {
                         type="text"
                         value={this.state.body}
                         onChange={this.update("body")}
+                        placeholder="Send a message to live chat"
                     />
-                    <button>Submit</button>
+                    <button>►</button>
                 </form>
             </div>
         );

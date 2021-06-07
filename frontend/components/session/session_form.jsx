@@ -24,7 +24,7 @@ class SessionForm extends React.Component {
         return (
             <label>
                 Display Name:
-                <input onChange={this.update("displayName")} type="text" value={this.state.displayName}/>
+                <input onChange={this.update("displayName")} type="text" value={this.state.displayName} placeholder="Full Name" />
             </label>
         )
     }
@@ -81,6 +81,7 @@ class SessionForm extends React.Component {
                 
                 <Link to="/">
                     <div className="form-header">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Solid_unicursal_hexagram.svg/1280px-Solid_unicursal_hexagram.svg.png" src-alt="logo img" />
                         <h1>Schwack</h1>
                     </div>
                 </Link>
@@ -91,18 +92,20 @@ class SessionForm extends React.Component {
                     {this.props.formType === "Sign Up" ? this.renderDisplayNameInput():""}
                     <label>
                         Email:
-                        <input onChange={this.update("email")} type="text" value={this.state.email}/>
+                        <input onChange={this.update("email")} type="text" value={this.state.email} placeholder="your@mail.com" />
                     </label>
                     <label>
                         Password:
-                        <input onChange={this.update("password")} type="password" value={this.state.password}/>
+                        <input onChange={this.update("password")} type="password" value={this.state.password} placeholder="Password (At least 6 characters)"/>
                     </label>
+                    <SessionFormErrors errors={this.props.errors} />
                     <button>{this.props.formType}</button>
+                    <button onClick={this.handleDemoLogin}>Demo Login</button>
                 </form>
                 
-                <button onClick={this.handleDemoLogin}>Demo Login</button>
+                
                 {this.renderSessionFormSwitchLink()}
-                <SessionFormErrors errors={this.props.errors} />
+                
             </div>
         )
     }
