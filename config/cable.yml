@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://redistogo:87c54c3bba71b145cbabcf6039ef8345@spinyfin.redistogo.com:11701/
+  url: <%= ENV['REDIS_URL'] %>
   channel_prefix: schwack_production
