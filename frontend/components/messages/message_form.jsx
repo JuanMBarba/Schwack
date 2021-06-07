@@ -30,7 +30,7 @@ class MessageForm extends React.Component {
     }
 
     renderEditingButtons(){
-        console.log(this.state);
+        // console.log(this.state);
         return (
             <div className="edit-buttons">
                 <button onClick={this.props.editSwitch} className="cancel-button">

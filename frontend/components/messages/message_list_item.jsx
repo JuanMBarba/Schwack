@@ -25,13 +25,13 @@ class MessageListItem extends React.Component {
     renderEditItem(){
         const { message, deleteMessage } = this.props;
         return (
-            <div onClick={this.editSwitch} className="edit-item">
-                <button className="edit-button">
+            <div className="edit-item">
+                <button onClick={this.editSwitch} className="edit-button">
                     EDIT
-                    </button>
+                </button>
                 <button onClick={() => deleteMessage(message.id)} className="delete-button">
                     DELETE
-                    </button>
+                </button>
             </div>
         )
     }
@@ -67,7 +67,7 @@ class MessageListItem extends React.Component {
     }
 
     render(){
-        
+        console.log(this.state.editing);
         return (
             this.state.editing ? this.editingRender() : this.initialRender()
         )
