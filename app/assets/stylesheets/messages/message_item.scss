@@ -19,7 +19,8 @@
         display: flex;
         // justify-content: center;
         align-items: center;
-    
+        background-color: white;
+
     }
 
     input {
@@ -31,7 +32,7 @@
 .message-item, .message-form-container {
     display: flex;
     flex-direction: column;
-    background-color:whitesmoke;
+    background-color:white;
     padding: 10px 20px;
     // margin: 20px;
     // border-radius: 5px;
@@ -39,10 +40,47 @@
         display: flex;
         justify-content: space-between;
     }
+
 }
 
+
+
 .message-item:hover {
-    background-color:rgb(238, 235, 235);
+    background-color:whitesmoke;
+}
+
+.editing{
+    background-color: wheat;
+}
+
+.editing:hover {
+    background-color: wheat;
+}
+
+.edit-buttons {
+    display: flex;
+    justify-content: flex-start;
+    font-size: small;
+    button {
+        margin: 3px 5px 3px 0px;
+        padding: 3px;
+        border-radius: 3px;
+    }
+    .cancel-button {
+        color: black;
+        background-color: white;
+    }
+    .cancel-button:hover {
+        color: black;
+        background-color: whitesmoke;
+    }
+    .save-button {
+        color: white;
+        background-color: green;
+    }
+    .save-button:hover{
+        background-color: rgb(0, 160, 0);
+    }
 }
 
 .message-item-header{

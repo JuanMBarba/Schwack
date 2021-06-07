@@ -17,7 +17,7 @@ class Api::MessagesController < ApplicationController
 
     def update
         @message = Message.find_by(id: params[:id])
-        if @message.update(user_params)
+        if @message.update(message_params)
             render "api/messages/show"
         else
             render json: @message.errors.full_messages, status: 422

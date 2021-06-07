@@ -1,6 +1,20 @@
 import React from "react";
+import MessageFormContainer from "./message_form_container";
 
 class MessageListItem extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            editing: false
+        }
+        this.editSwitch = this.editSwitch.bind(this);
+    }
+
+    editSwitch(e){
+        e.preventDefault();
+        let editing = this.state.editing;
+        this.setState({editing: !editing});
+    }
 
     componentDidMount(){
         if (this.props.users[this.props.message.userId] === undefined){
@@ -11,7 +25,7 @@ class MessageListItem extends React.Component {
     renderEditItem(){
         const { message, deleteMessage } = this.props;
         return (
-            <div className="edit-item">
+            <div onClick={this.editSwitch} className="edit-item">
                 <button className="edit-button">
                     EDIT
                     </button>
@@ -22,19 +36,40 @@ class MessageListItem extends React.Component {
         )
     }
 
-    render(){
-        const { message} = this.props;
+    initialRender(){
+        const { message } = this.props;
         const user = this.props.users[message.userId];
         return (
             <div className="message-item">
                 <div className="message-item-header">
-                    {user ? user.displayName : ""} 
+                    {user ? user.displayName : ""}
                 </div>
                 <div className="message-item-body">
                     {message.body}
                 </div>
-                {this.props.currentUserId === message.userId ? this.renderEditItem(): ""}
+                {this.props.currentUserId === message.userId ? this.renderEditItem() : ""}
             </div>
+        )
+    }
+
+    editingRender(){
+        const { message } = this.props;
+        const user = this.props.users[message.userId];
+        return (
+            <div className="message-item editing">
+                <div className="message-item-header">
+                    {user ? user.displayName : ""}
+                </div>
+                <MessageFormContainer message={message} editSwitch={this.editSwitch}/>
+            </div>
+        )
+
+    }
+
+    render(){
+        
+        return (
+            this.state.editing ? this.editingRender() : this.initialRender()
         )
     }
 }

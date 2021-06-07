@@ -4,11 +4,12 @@ import React from "react";
 class MessageForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            userId: this.props.currentUser.id,
-            channelId: 1,
-            body: "" 
-        };
+        // this.state = { 
+        //     userId: this.props.currentUser.id,
+        //     channelId: 1,
+        //     body: "" 
+        // };
+        this.state = Object.assign({}, this.props.message);
         this.handleSubmit =this.handleSubmit.bind(this)
     }
 
@@ -18,13 +19,33 @@ class MessageForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createMessage(this.state);
+        if (this.props.editing){
+            this.props.updateMessage(this.state);
+            this.props.editSwitch(e);
+        }
+        else {
+            this.props.createMessage(this.state);
+        }
         this.setState({ body: "" });
+    }
+
+    renderEditingButtons(){
+        console.log(this.state);
+        return (
+            <div className="edit-buttons">
+                <button onClick={this.props.editSwitch} className="cancel-button">
+                    Cancel
+                </button>
+                <button onClick={this.handleSubmit} className="save-button">
+                    ⏎ Save Changes
+                </button>
+            </div>
+        )
     }
 
     render() {
         return (
-            <div className="message-form-container">
+            <div className={`message-form-container${this.props.editing ? " editing": ""}`}>
                 <form onSubmit={this.handleSubmit}>
                     <input
                         type="text"
@@ -34,6 +55,7 @@ class MessageForm extends React.Component {
                     />
                     <button>►</button>
                 </form>
+                {this.props.editing ? this.renderEditingButtons(): ""}
             </div>
         );
     }

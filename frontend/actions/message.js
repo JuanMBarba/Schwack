@@ -52,6 +52,7 @@ export const createMessage = (message) => dispatch =>  {
 export const updateMessage = (message) => dispatch =>  {
     return MessageAPIUtil.updateMessage(message)
         .then(message => dispatch(receiveMessage(message)))
+        .then(data => App.cable.subscriptions.subscriptions[0].speak(data))
         .fail(errors => dispatch(receiveMessageErrors(errors.responseJSON)))
 }
 
