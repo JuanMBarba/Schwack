@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Channel.destroy_all
+Message.destroy_all
 
 ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
@@ -14,3 +16,5 @@ end
 
 self_user = User.create!(display_name: "Juan Barba", email:"juan@mail.com", password: "123456")
 demo_user = User.create!(display_name: "Demo User", email:"demo@mail.com", password: "123456")
+
+channel1= Channel.create!(name: "general", dm_channel: false);
