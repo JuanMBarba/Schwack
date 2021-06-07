@@ -1,6 +1,7 @@
 .message-list-container{
-    width: 70%;
-    margin: auto;
+    width: 80%;
+    // margin: auto;
+    margin-left: 20%;
 }
 
 .message-list{
@@ -22,7 +23,7 @@
     }
 
     input {
-        width: 70%;
+        width: 95%;
         padding: 5px;
     }
 }
@@ -31,7 +32,7 @@
     display: flex;
     flex-direction: column;
     background-color:whitesmoke;
-    padding: 20px;
+    padding: 10px 20px;
     // margin: 20px;
     // border-radius: 5px;
     > form {
@@ -45,7 +46,7 @@
 }
 
 .message-item-header{
-    margin-bottom: 10px;
+    // margin-bottom: 0px;
     // color: blue;
     font-weight: 700;
 }
@@ -64,6 +65,7 @@
     padding: 1px 3px;
     border-radius: 3px;
     margin-right: 5px;
+    cursor: pointer;
 }
 
 .message-form-container button:hover{
@@ -95,4 +97,42 @@
         // font-weight: 500;
         padding: 2px 7px;
     }
+}
+
+.message-item{
+    position: relative;
+}
+
+.edit-item {
+    display: none;
+}
+
+.message-item:hover .edit-item {
+    display: flex;
+    position: absolute;
+    background-color: white;
+    // width: 10px;
+    top: -10px;
+    right: 15px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: small;
+    padding: 3px;
+    div {
+        margin: 2px;
+        cursor: pointer;
+        padding: 2px
+    }
+
+    div:hover {
+        background-color: rgb(218, 218, 218);
+        border-radius: 3px;
+    }
+
+    div:last-child:hover {
+        background-color: pink;
+        color: firebrick;
+        border-radius: 3px;
+    }
+    
 }

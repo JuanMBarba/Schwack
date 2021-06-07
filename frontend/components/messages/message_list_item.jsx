@@ -19,6 +19,14 @@ class MessageListItem extends React.Component {
                 <div className="message-item-body">
                     {message.body}
                 </div>
+                <div className="edit-item">
+                    <div className="edit-button">
+                        EDIT
+                    </div>
+                    <div className="delete-button">
+                        DELETE
+                    </div>
+                </div>
             </div>
         )
     }
