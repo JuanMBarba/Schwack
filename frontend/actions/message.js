@@ -21,7 +21,7 @@ export const receiveMessage = (message) => {
     }
 }
 
-const removeMessage = (messageId) => {
+export const removeMessage = (messageId) => {
     return {
         type: REMOVE_MESSAGE,
         messageId
@@ -58,6 +58,7 @@ export const updateMessage = (message) => dispatch =>  {
 export const deleteMessage = (messageId) => dispatch =>  {
     return MessageAPIUtil.deleteMessage(messageId)
         .then(message => dispatch(removeMessage(message.id)))
+        .then(data => App.cable.subscriptions.subscriptions[0].speak(data))
         .fail(errors => dispatch(receiveMessageErrors(errors.responseJSON)))
 }
 

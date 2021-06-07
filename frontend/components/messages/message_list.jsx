@@ -17,8 +17,10 @@ class MessageList extends React.Component{
             { channel: "ChatChannel" },
             {
                 received: data => {
-                    if (data.message.userId !== this.props.currentUserId){
-
+                    if (data.type === "REMOVE_MESSAGE") {
+                        this.props.removeMessage(data.messageId)
+                    }
+                    else if (data.message.userId !== this.props.currentUserId){
                         this.props.receiveMessage(data.message);
                     }
                 },
@@ -41,7 +43,7 @@ class MessageList extends React.Component{
             return (
                 <li key={index}>
                     <MessageListItemContainer message={message} />
-                    <div ref={this.bottom} />
+                    {/* <div ref={this.bottom} /> */}
                 </li>
             )
         })
@@ -58,10 +60,12 @@ class MessageList extends React.Component{
                     {/* </div> */}
                 </div>
                 <div className="message-list-container">
-                    <div ref={this.bottom} />
+                    
                     <ul className="message-list">
                         {messageList}
+                        <div ref={this.bottom} />
                     </ul>
+                    
                     <MessageFormContainer />
                 </div>
             </div>

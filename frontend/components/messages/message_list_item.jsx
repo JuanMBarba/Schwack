@@ -8,8 +8,22 @@ class MessageListItem extends React.Component {
         }
     }
 
+    renderEditItem(){
+        const { message, deleteMessage } = this.props;
+        return (
+            <div className="edit-item">
+                <button className="edit-button">
+                    EDIT
+                    </button>
+                <button onClick={() => deleteMessage(message.id)} className="delete-button">
+                    DELETE
+                    </button>
+            </div>
+        )
+    }
+
     render(){
-        const { message } = this.props;
+        const { message} = this.props;
         const user = this.props.users[message.userId];
         return (
             <div className="message-item">
@@ -19,14 +33,7 @@ class MessageListItem extends React.Component {
                 <div className="message-item-body">
                     {message.body}
                 </div>
-                <div className="edit-item">
-                    <button className="edit-button">
-                        EDIT
-                    </button>
-                    <button className="delete-button">
-                        DELETE
-                    </button>
-                </div>
+                {this.props.currentUserId === message.userId ? this.renderEditItem(): ""}
             </div>
         )
     }
