@@ -1,9 +1,9 @@
-import * as ChannelAPIUtil from "../util/channel_api",
+import * as ChannelAPIUtil from "../util/channel_api";
 
-export const RECEIVE_CHANNELS = "RECEIVE_CHANNELS"
-export const RECEIVE_CHANNEL = "RECEIVE_CHANNEL"
-export const REMOVE_CHANNEL = "REMOVE_CHANNEL"
-export const RECEIVE_CHANNEL_ERRORS = "RECEIVE_CHANNEL_ERRORS"
+export const RECEIVE_CHANNELS = "RECEIVE_CHANNELS";
+export const RECEIVE_CHANNEL = "RECEIVE_CHANNEL";
+export const REMOVE_CHANNEL = "REMOVE_CHANNEL";
+export const RECEIVE_CHANNEL_ERRORS = "RECEIVE_CHANNEL_ERRORS";
 
 //Action Creators
 
