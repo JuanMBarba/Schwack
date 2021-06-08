@@ -67,7 +67,7 @@ class MessageListItem extends React.Component {
     }
 
     render(){
-        console.log(this.state.editing);
+        // console.log(this.state.editing);
         return (
             this.state.editing ? this.editingRender() : this.initialRender()
         )
