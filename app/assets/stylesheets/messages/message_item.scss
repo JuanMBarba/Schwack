@@ -2,11 +2,15 @@
     width: 80%;
     // margin: auto;
     margin-left: 20%;
+    background-color: white;
 }
 
 .message-list{
     overflow-y: scroll;
     height: 85vh;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-end;
 }
 
 .message-form-container{
