@@ -14,7 +14,7 @@ const Auth = ({component: Component, path, loggedIn, exact}) => {
             render={
                 props =>
                     !loggedIn ? (<Component {...props} />) :
-                    (<Redirect to="/liveChat" />)
+                    (<Redirect to="/workspace" />)
             }
         />
     );
