@@ -13,20 +13,32 @@ class MessageForm extends React.Component {
         this.handleSubmit =this.handleSubmit.bind(this)
     }
 
+    // componentDidMount(){
+    //     this.setState({channel_id: this.props.match.params.id})
+    // }
+
     update(field) {
         return e => this.setState({ [field]: e.currentTarget.value });
     }
 
     handleSubmit(e) {
+        // console.log(this.state);
         e.preventDefault();
-        if (this.props.editing){
-            this.props.updateMessage(this.state);
-            this.props.editSwitch(e);
-        }
-        else {
-            this.props.createMessage(this.state);
-        }
-        this.setState({ body: "" });
+        this.setState({ channelId: this.props.match.params.channelId}, () => {
+            // console.log(this.state);
+            if (this.props.editing) {
+                this.props.updateMessage(this.state);
+                this.props.editSwitch(e);
+            }
+            else {
+                this.props.createMessage(this.state);
+            }
+            this.setState({ body: "" });
+        })
+        // console.log(this.state);
+        // console.log(this.props.match.params.channelId);
+        
+       
     }
 
     renderEditingButtons(){
@@ -51,7 +63,7 @@ class MessageForm extends React.Component {
                         type="text"
                         value={this.state.body}
                         onChange={this.update("body")}
-                        placeholder="Send a message to live chat"
+                        placeholder={this.props.editing ? "Edit Message" : "Send a message to live chat"}
                     />
                     <button>►</button>
                 </form>

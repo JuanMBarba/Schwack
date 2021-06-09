@@ -2,12 +2,16 @@ import { connect } from "react-redux";
 import { fetchMessages, receiveMessage, removeMessage} from "../../actions/message";
 import { fetchUsers } from "../../actions/user";
 import MessageList from "./message_list";
-import {logout} from "../../actions/session"; //Delete after refactor
+import { withRouter } from "react-router-dom";
+import { getChannelMessages } from "../../reducers/selectors";
 
-const mSTP = (state) => {
+
+const mSTP = (state, ownProps) => {
+    // console.log(ownProps);
     return {
         users: state.entities.users,
-        messages: state.entities.messages,
+        // messages: state.entities.messages,
+        messages: getChannelMessages(state.entities.messages, ownProps.match.params.channelId),
         currentUserId: state.session.id
     }
 }
@@ -17,8 +21,8 @@ const mDTP = (dispatch) => {
         fetchUsers: () => dispatch(fetchUsers()),
         receiveMessage: message => dispatch(receiveMessage(message)),
         removeMessage: messageId => dispatch(removeMessage(messageId)),
-        logout: () => dispatch(logout()) //DELETE AFTER REFACTOR
+        
     }
 }
 
-export default connect(mSTP, mDTP)(MessageList);
+export default withRouter(connect(mSTP, mDTP)(MessageList));

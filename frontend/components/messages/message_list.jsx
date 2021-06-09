@@ -39,15 +39,15 @@ class MessageList extends React.Component{
     render(){
         const { messages, users } = this.props;
         
-        const messageList = Object.values(messages).map((message, index) => {
+        const messageList = messages.map((message, index) => {
             return (
                 <li key={index}>
-                    <MessageListItemContainer message={message} />
+                    <MessageListItemContainer message={message}/>
                     {/* <div ref={this.bottom} /> */}
                 </li>
             )
         })
-
+        // console.log(this.props)
         return (
             // Made a temp div in order to have a header here
             // will move later when I have a component that encapsulates
