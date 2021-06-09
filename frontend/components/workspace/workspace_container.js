@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import Workspace from "./workspace";
 import { logout } from "../../actions/session";
+import { fetchChannels } from "../../actions/channel";
 // import { withRouter } from "react-router";
 
 const mSTP = (state, ownProps) => {
@@ -11,7 +12,8 @@ const mSTP = (state, ownProps) => {
 }
 const mDTP = (dispatch) => {
     return {
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        fetchChannels: () => dispatch(fetchChannels())
     }
 }
 

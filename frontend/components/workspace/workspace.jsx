@@ -4,6 +4,10 @@ import MessageListContainer from "../messages/message_list_container";
 import ChannelListContainer from "../channels/channel_list_container"
 
 class Workspace extends React.Component {
+    componentDidMount() {
+        this.props.fetchChannels()
+    }
+
     render(){
         // console.log(this.props.channelId)
         return (

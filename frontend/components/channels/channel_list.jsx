@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom"
 class ChannelList extends React.Component {
     componentDidMount(){
         this.props.fetchChannels();
+        
     }
     
     render(){
