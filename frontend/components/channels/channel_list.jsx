@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 class ChannelList extends React.Component {
     componentDidMount(){
@@ -10,9 +10,11 @@ class ChannelList extends React.Component {
         const { channels } = this.props;
         let channel_list = Object.values(channels).map((channel, index) => {
             return (
-                <li key={index}>
-                    <Link to={`/channels/${channel.id}`}>{channel.name}</Link>
-                </li>
+                <NavLink key={index} activeClassName="current-channel" to={`/channels/${channel.id}`}>
+                    <li key={index}>
+                        # {channel.name}
+                    </li>
+                </NavLink >
             )
         })
         return (

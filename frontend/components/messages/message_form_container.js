@@ -4,7 +4,7 @@ import { createMessage, updateMessage } from "../../actions/message";
 import { withRouter } from "react-router-dom";
 
 const mSTP = (state, ownProps) => {
-    console.log(ownProps.match.params.channelId);
+    // console.log(ownProps.match.params.channelId);
     return {
         message: {
             id: ownProps.message ? ownProps.message.id : "",

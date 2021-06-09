@@ -58,6 +58,9 @@ class MessageList extends React.Component{
                 //         {/* <button className="header-button" onClick={() => this.props.logout()}>LOGOUT</button> */}
                 // {/* </div> */}
                 <div className="message-list-container">
+                    <div className="channel-header">
+                    # {this.props.currentChannel ? this.props.currentChannel.name : ""}
+                    </div>
                     
                     <ul className="message-list">
                         {messageList}

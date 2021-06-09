@@ -1,5 +1,5 @@
 .message-list-container{
-    width: 80%;
+    width: 100%;
     // margin: auto;
     // margin-left: 20%;
     background-color: white;
@@ -7,7 +7,7 @@
 
 .message-list{
     overflow-y: scroll;
-    height: 85vh;
+    height: 77vh;
     // display: flex;
     // flex-direction: column;
     // justify-content: flex-end;
@@ -121,7 +121,7 @@
     align-items: center;
     height: 5vh;
     background-color: $darker-blue;
-    border-bottom: 2px solid $dark-blue;
+    border-bottom: 1px solid $greyer-blue;
     .header-button{
         border: 1px solid white;
         font-weight: 400;

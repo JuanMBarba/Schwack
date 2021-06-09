@@ -12,7 +12,8 @@ const mSTP = (state, ownProps) => {
         users: state.entities.users,
         // messages: state.entities.messages,
         messages: getChannelMessages(state.entities.messages, ownProps.match.params.channelId),
-        currentUserId: state.session.id
+        currentUserId: state.session.id,
+        currentChannel: state.entities.channels[ownProps.match.params.channelId]
     }
 }
 const mDTP = (dispatch) => {
