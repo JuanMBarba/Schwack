@@ -12,6 +12,7 @@ class MessageList extends React.Component{
     componentDidMount(){
         this.props.fetchMessages();
         this.props.fetchUsers();
+        this.props.fetchUser(this.props.currentUserId);
 
         App.cable.subscriptions.create(
             { channel: "ChatChannel" },
@@ -21,6 +22,7 @@ class MessageList extends React.Component{
                         this.props.removeMessage(data.messageId)
                     }
                     else if (data.message.userId !== this.props.currentUserId){
+                        console.log("hello")
                         this.props.receiveMessage(data.message);
                     }
                 },
