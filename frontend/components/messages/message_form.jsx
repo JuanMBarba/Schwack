@@ -63,7 +63,7 @@ class MessageForm extends React.Component {
                         type="text"
                         value={this.state.body}
                         onChange={this.update("body")}
-                        placeholder={this.props.editing ? "Edit Message" : "Send a message to live chat"}
+                        placeholder={this.props.editing ? "Edit Message" : "Send a message"}
                     />
                     <button>►</button>
                 </form>
