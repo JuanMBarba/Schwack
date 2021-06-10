@@ -11,7 +11,7 @@ class MessageList extends React.Component{
 
     componentDidMount(){
         this.props.fetchMessages();
-        console.log("hello")
+        // console.log("hello")
         this.props.fetchUsers();
         // this.props.fetchUser(this.props.currentUserId);
 

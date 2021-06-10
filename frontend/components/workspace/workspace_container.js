@@ -4,10 +4,11 @@ import { logout } from "../../actions/session";
 import { fetchChannels } from "../../actions/channel";
 import { fetchUser } from "../../actions/user";
 // import { withRouter } from "react-router";
+import { getUsersChannels } from "../../reducers/selectors"
 
 const mSTP = (state, ownProps) => {
     return {
-        getUsersChannels: () => getUsersChannels(state.entities.users[state.session.id], state.entities.channels),
+        channels: getUsersChannels(state.entities.users[state.session.id], state.entities.channels),
         channelId: ownProps.match.params.channelId,
         currentUserId: state.session.id
     }
