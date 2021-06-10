@@ -41,7 +41,7 @@ export const signup = (user) => dispatch => {
 }
 
 export const login = (user) => dispatch => {
-    console.log(user)
+    // console.log(user)
     return SessionAPIUtil.login(user)
         .then(user => dispatch(receiveCurrentUser(user)))
         .fail(errors => dispatch(receiveSessionErrors(errors.responseJSON)));
