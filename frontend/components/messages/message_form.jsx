@@ -27,11 +27,11 @@ class MessageForm extends React.Component {
         this.setState({ channelId: this.props.match.params.channelId}, () => {
             // console.log(this.state);
             if (this.props.editing) {
-                this.props.updateMessage(this.state);
+                this.props.updateMessage(this.state, this.props.match.params.channelId);
                 this.props.editSwitch(e);
             }
             else {
-                this.props.createMessage(this.state);
+                this.props.createMessage(this.state, this.props.match.params.channelId);
             }
             this.setState({ body: "" });
         })

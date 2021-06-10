@@ -18,8 +18,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
     return {
-        createMessage: message => dispatch(createMessage(message)),
-        updateMessage: message => dispatch(updateMessage(message))
+        createMessage: (message, channelId) => dispatch(createMessage(message, channelId)),
+        updateMessage: (message, channelId) => dispatch(updateMessage(message, channelId))
     }
 } 
 

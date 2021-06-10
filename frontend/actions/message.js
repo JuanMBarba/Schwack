@@ -1,4 +1,5 @@
 import * as MessageAPIUtil from "../util/message_api";
+import selectSpeak from "../util/speak"
 
 export const RECEIVE_MESSAGES =  "RECEIVE_MESSAGES";
 export const RECEIVE_MESSAGE =  "RECEIVE_MESSAGE";
@@ -43,24 +44,24 @@ export const fetchMessages = () => dispatch =>  {
         .then(messages => dispatch(receiveMessages(messages)))
 }
 
-export const createMessage = (message) => dispatch =>  {
+export const createMessage = (message, channelId) => dispatch =>  {
     return MessageAPIUtil.createMessage(message)
         .then(message => dispatch(receiveMessage(message)))
-        .then(data => App.cable.subscriptions.subscriptions[0].speak(data))
+        .then(data => selectSpeak(data, channelId))
         .fail(errors => dispatch(receiveMessageErrors(errors.responseJSON)))
 }
 
-export const updateMessage = (message) => dispatch =>  {
+export const updateMessage = (message, channelId) => dispatch =>  {
     return MessageAPIUtil.updateMessage(message)
         .then(message => dispatch(receiveMessage(message)))
-        .then(data => App.cable.subscriptions.subscriptions[0].speak(data))
+        .then(data => selectSpeak(data, channelId))
         .fail(errors => dispatch(receiveMessageErrors(errors.responseJSON)))
 }
 
-export const deleteMessage = (messageId) => dispatch =>  {
+export const deleteMessage = (messageId, channelId) => dispatch =>  {
     return MessageAPIUtil.deleteMessage(messageId)
         .then(message => dispatch(removeMessage(message.id)))
-        .then(data => App.cable.subscriptions.subscriptions[0].speak(data))
+        .then(data => selectSpeak(data, channelId))
         .fail(errors => dispatch(receiveMessageErrors(errors.responseJSON)))
 }
 

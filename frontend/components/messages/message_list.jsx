@@ -14,25 +14,46 @@ class MessageList extends React.Component{
         // console.log("hello")
         this.props.fetchUsers();
         // this.props.fetchUser(this.props.currentUserId);
-
-        App.cable.subscriptions.create(
-            { channel: "ChatChannel" },
-            {
-                received: data => {
-                    if (data.type === "REMOVE_MESSAGE") {
-                        this.props.removeMessage(data.messageId)
+        // console.log(this.props)
+        const channelIds = this.props.users[this.props.currentUserId].channelIds
+        for (let i = 0; i < channelIds.length; i++) {
+            App.cable.subscriptions.create(
+                { channel: "ChatChannel" , id: channelIds[i]},
+                {
+                    received: data => {
+                        console.log("received")
+                        if (data.type === "REMOVE_MESSAGE") {
+                            this.props.removeMessage(data.messageId)
+                        }
+                        else if (data.message.userId !== this.props.currentUserId) {
+                            // console.log("hello")
+                            this.props.receiveMessage(data.message);
+                        }
+                    },
+                    speak: function (data) {
+                        return this.perform("speak", data);
                     }
-                    else if (data.message.userId !== this.props.currentUserId){
-                        console.log("hello")
-                        this.props.receiveMessage(data.message);
-                    }
-                },
-                speak: function (data) {
-                    return this.perform("speak", data);
                 }
-            }
-        );
-
+            );
+        }
+        console.log(App.cable.subscriptions.subscriptions)
+        // App.cable.subscriptions.create(
+        //     { channel: "ChatChannel" },
+        //     {
+        //         received: data => {
+        //             if (data.type === "REMOVE_MESSAGE") {
+        //                 this.props.removeMessage(data.messageId)
+        //             }
+        //             else if (data.message.userId !== this.props.currentUserId) {
+        //                 // console.log("hello")
+        //                 this.props.receiveMessage(data.message);
+        //             }
+        //         },
+        //         speak: function (data) {
+        //             return this.perform("speak", data);
+        //         }
+        //     }
+        // );
     }
 
     componentDidUpdate() {
