@@ -21,7 +21,7 @@ class MessageList extends React.Component{
                 { channel: "ChatChannel" , id: channelIds[i]},
                 {
                     received: data => {
-                        console.log("received")
+                        // console.log("received")
                         if (data.type === "REMOVE_MESSAGE") {
                             this.props.removeMessage(data.messageId)
                         }

@@ -14,6 +14,17 @@ class Workspace extends React.Component {
                 .then(() => this.setState({}))
         }
     }
+    renderRedirect(){
+        if (this.props.channelId){
+            return (<Redirect to={`/channels/${this.props.channelId}`} />)
+        }
+        else if (this.props.currentUserFirstChannel){
+            return <Redirect to={`/channels/${this.props.currentUserFirstChannel}`} />
+        }
+        else{
+            return ""
+        }
+    }
 
     render(){
         // console.log(this.props.channelId)
@@ -21,7 +32,8 @@ class Workspace extends React.Component {
             <div className="workspace-page">
                 {/* { this.props.channelId ? "" : <Redirect to="/channels/1" />} */}
                 {/* {console.log(this.props.currentUserFirstChannel)} */}
-                { this.props.currentUserFirstChannel ? <Redirect to={`/channels/${this.props.currentUserFirstChannel}`} /> : ""}
+                {/* { this.props.currentUserFirstChannel ? <Redirect to={`/channels/${this.props.currentUserFirstChannel}`} /> : ""} */}
+                {this.renderRedirect()}
                 {/* <Redirect to="/channels/1" /> */}
                 {/* Need headers here */}
                 <div className="workspace-header">
