@@ -11,8 +11,9 @@ class MessageList extends React.Component{
 
     componentDidMount(){
         this.props.fetchMessages();
+        console.log("hello")
         this.props.fetchUsers();
-        this.props.fetchUser(this.props.currentUserId);
+        // this.props.fetchUser(this.props.currentUserId);
 
         App.cable.subscriptions.create(
             { channel: "ChatChannel" },

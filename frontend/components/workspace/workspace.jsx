@@ -5,7 +5,8 @@ import ChannelListContainer from "../channels/channel_list_container"
 
 class Workspace extends React.Component {
     componentDidMount() {
-        this.props.fetchChannels()
+        this.props.fetchChannels();
+        // this.props.fetchUser(this.props.currentUserId);
     }
 
     render(){
@@ -13,6 +14,7 @@ class Workspace extends React.Component {
         return (
             <div className="workspace-page">
                 { this.props.channelId ? "" : <Redirect to="/channels/1" />}
+                {/* { this.props.channelId ? "" : <Redirect to={`/channels/${}`} />} */}
                 {/* <Redirect to="/channels/1" /> */}
                 {/* Need headers here */}
                 <div className="workspace-header">
