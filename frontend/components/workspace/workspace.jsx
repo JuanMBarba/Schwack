@@ -2,19 +2,26 @@ import React from "react"
 import { Redirect} from "react-router-dom"
 import MessageListContainer from "../messages/message_list_container";
 import ChannelListContainer from "../channels/channel_list_container"
+import { defaultMemberships } from "../../util/membership_api";
 
 class Workspace extends React.Component {
     componentDidMount() {
-        this.props.fetchChannels();
+        // this.props.fetchChannels();
         // this.props.fetchUser(this.props.currentUserId);
+        if (!this.props.currentUserFirstChannel){
+            defaultMemberships(this.props.currentUserId)
+                .then(() => this.props.fetchUser(this.props.currentUserId))
+                .then(() => this.setState({}))
+        }
     }
 
     render(){
         // console.log(this.props.channelId)
         return (
             <div className="workspace-page">
-                { this.props.channelId ? "" : <Redirect to="/channels/1" />}
-                {/* { this.props.channelId ? "" : <Redirect to={`/channels/${}`} />} */}
+                {/* { this.props.channelId ? "" : <Redirect to="/channels/1" />} */}
+                {/* {console.log(this.props.currentUserFirstChannel)} */}
+                { this.props.currentUserFirstChannel ? <Redirect to={`/channels/${this.props.currentUserFirstChannel}`} /> : ""}
                 {/* <Redirect to="/channels/1" /> */}
                 {/* Need headers here */}
                 <div className="workspace-header">

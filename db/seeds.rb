@@ -20,9 +20,12 @@ demo_user = User.create!(display_name: "Demo User", email:"demo@mail.com", passw
 
 channel1 = Channel.create!(name: "general", dm_channel: false);
 channel2 = Channel.create!(name: "random", dm_channel: false);
+channel3 = Channel.create!(name: "other", dm_channel: false);
 
 membership1 = Membership.create!(user_id: self_user.id, channel_id: channel1.id )
 membership2 = Membership.create!(user_id: demo_user.id, channel_id: channel1.id )
 
 membership3 = Membership.create!(user_id: self_user.id, channel_id: channel2.id )
 membership4 = Membership.create!(user_id: demo_user.id, channel_id: channel2.id )
+
+membership4 = Membership.create!(user_id: demo_user.id, channel_id: channel3.id )
