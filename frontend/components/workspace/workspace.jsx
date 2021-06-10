@@ -2,9 +2,14 @@ import React from "react"
 import { Redirect} from "react-router-dom"
 import MessageListContainer from "../messages/message_list_container";
 import ChannelListContainer from "../channels/channel_list_container"
+import ChannelFormContainer from "../channels/channel_form_container"
 import { defaultMemberships } from "../../util/membership_api";
 
 class Workspace extends React.Component {
+    constructor(props){
+        super(props)
+    }
+    
     componentDidMount() {
         // this.props.fetchChannels();
         // this.props.fetchUser(this.props.currentUserId);
@@ -43,9 +48,10 @@ class Workspace extends React.Component {
                     <ChannelListContainer />
                     <MessageListContainer />
                 </div>
-                <div className=".modal">
+                {/* <div className=".modal">
                     <div class="modal-screen"></div>
-                </div>
+                </div> */}
+                <ChannelFormContainer />
             </div>
         )
     }
