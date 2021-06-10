@@ -13,7 +13,8 @@ class ChannelList extends React.Component {
             return (
                 <NavLink key={index} activeClassName="current-channel" to={`/channels/${channel.id}`}>
                     <li key={index}>
-                        # {channel.name}
+                        <div className="symbol-box">#</div>
+                        {channel.name}
                     </li>
                 </NavLink >
             )
@@ -24,8 +25,15 @@ class ChannelList extends React.Component {
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Solid_unicursal_hexagram.svg/1280px-Solid_unicursal_hexagram.svg.png" src-alt="logo img" />
                     <h2>schwack</h2>
                 </div>
+                <div className="channel-list-header">
+                    Channels
+                </div>
                 <ul className="channel-list">
                     {channel_list}
+                    <li className="add-channel-button">
+                        <div className="symbol-box">+</div>
+                        Add channels
+                    </li>
                 </ul>
             </div>
         )

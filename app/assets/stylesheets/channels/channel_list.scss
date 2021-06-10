@@ -13,10 +13,26 @@
 .channel-list{
     display: flex;
     flex-direction: column;
+    // align-items: flex-end;
+    .symbol-box {
+        padding: 0px 5px 0px 5px;
+        border-radius: 5px;
+        // background-color: $dark-blue;
+        font-weight: 700;
+        margin-right: 5px;
+        &.plus-symbol {
+            background-color: $dark-blue;
+        }
+
+    }
+
     li {
         // background-color: grey;
+        display: flex;
+        
         padding: 5px;
-        padding-left: 10px;
+        padding-left: 15px;
+        cursor: pointer;
     }
     li:hover {
         background-color: $grey-blue;
@@ -27,6 +43,12 @@
     .current-channel li{
         background-color: $dark-blue;
     }
+}
+
+.channel-list-header {
+    font-weight: 700;
+    padding: 5px;
+    padding-left: 10px;
 }
 
 .workspace-logo {
@@ -50,4 +72,17 @@
     padding: 10px;
     padding-top: 15px;
     font-weight: 700;
+}
+
+.modal {
+    display: block;
+}
+.modal-screen{
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
 }

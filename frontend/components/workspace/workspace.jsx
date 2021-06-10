@@ -43,6 +43,10 @@ class Workspace extends React.Component {
                     <ChannelListContainer />
                     <MessageListContainer />
                 </div>
+                <div className=".modal">
+                    <div class="modal-screen"></div>
+                    
+                </div>
             </div>
         )
     }
