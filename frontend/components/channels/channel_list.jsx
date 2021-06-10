@@ -30,7 +30,7 @@ class ChannelList extends React.Component {
                 </div>
                 <ul className="channel-list">
                     {channel_list}
-                    <li className="add-channel-button">
+                    <li onClick={() => this.props.switchModalActivity()} className="add-channel-button">
                         <div className="symbol-box">+</div>
                         Add channels
                     </li>

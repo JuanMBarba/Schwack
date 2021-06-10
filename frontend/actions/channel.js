@@ -1,4 +1,6 @@
 import * as ChannelAPIUtil from "../util/channel_api";
+import * as MembershipAPUUtil from "../util/membership_api";
+import { fetchUser} from "../actions/user"
 
 export const RECEIVE_CHANNELS = "RECEIVE_CHANNELS";
 export const RECEIVE_CHANNEL = "RECEIVE_CHANNEL";
@@ -46,9 +48,11 @@ export const fetchChannel = (channelId) => dispatch => {
         .then(channel => dispatch(receiveChannel(channel)))
 }
 
-export const createChannel = (channel) => dispatch => {
+export const createChannel = (channel, userId) => dispatch => {
     return ChannelAPIUtil.createChannel(channel)
         .then(channel => dispatch(receiveChannel(channel)))
+        .then(action => MembershipAPUUtil.createMembership({userId, channelId: action.channel.id}))
+        .then(() => dispatch(fetchUser(userId)))
         .fail(errors => dispatch(receiveChannelErrors(errors.responseJSON)))
 }
 

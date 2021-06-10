@@ -36,7 +36,7 @@ class MessageList extends React.Component{
                 }
             );
         }
-        console.log(App.cable.subscriptions.subscriptions)
+        // console.log(App.cable.subscriptions.subscriptions)
         // App.cable.subscriptions.create(
         //     { channel: "ChatChannel" },
         //     {

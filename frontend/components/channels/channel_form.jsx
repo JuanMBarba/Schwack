@@ -9,7 +9,8 @@ class ChannelForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.createChannel(this.state);
+        this.props.createChannel(this.state, this.props.currentUserId);
+        this.props.switchModalActivity();
     }
 
     update(field){
@@ -18,15 +19,16 @@ class ChannelForm extends React.Component {
 
 
     render(){
+        const modalActive = this.props.modalActive;
         return (
-            <div className=".modal">
-                <div class="modal-screen"></div>
+            <div className={`modal${modalActive ? " active" : ""}`}>
+                <div onClick={() => this.props.switchModalActivity()} className="modal-screen"></div>
                 <form onSubmit={this.handleSubmit} className="modal-form">
                     <div className="modal-form-header">
                         <h1>
                             Create a Channel
                         </h1>
-                        <div>
+                        <div onClick={() => this.props.switchModalActivity()}>
                             ×
                         </div>
                     </div>
@@ -46,7 +48,7 @@ class ChannelForm extends React.Component {
                             What's this channel about?
                         </div>
                     </label>
-                    <button className="modal-form-button">Create</button>
+                    <button className="modal-form-button" onSubmit={this.handleSubmit}>Create</button>
                 </form>
             </div>
         )

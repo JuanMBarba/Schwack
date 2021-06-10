@@ -8,8 +8,16 @@ import { defaultMemberships } from "../../util/membership_api";
 class Workspace extends React.Component {
     constructor(props){
         super(props)
+        this.state = {
+            modalActive: false
+        }
+        this.switchModalActivity = this.switchModalActivity.bind(this);
     }
-    
+
+    switchModalActivity(){
+        this.setState({modalActive: !this.state.modalActive});//May be a problem
+    }
+
     componentDidMount() {
         // this.props.fetchChannels();
         // this.props.fetchUser(this.props.currentUserId);
@@ -45,13 +53,13 @@ class Workspace extends React.Component {
                     <button className="header-button" onClick={() => this.props.logout()}>LOGOUT</button>
                 </div>
                 <div className="workspace-body">
-                    <ChannelListContainer />
+                    <ChannelListContainer switchModalActivity={this.switchModalActivity} />
                     <MessageListContainer />
                 </div>
                 {/* <div className=".modal">
                     <div class="modal-screen"></div>
                 </div> */}
-                <ChannelFormContainer />
+                <ChannelFormContainer modalActive={this.state.modalActive} switchModalActivity={this.switchModalActivity}/>
             </div>
         )
     }

@@ -29,7 +29,7 @@
     li {
         // background-color: grey;
         display: flex;
-        
+        white-space: nowrap;
         padding: 5px;
         padding-left: 15px;
         cursor: pointer;
@@ -75,8 +75,13 @@
 }
 
 .modal {
+    display: none;
+}
+
+.modal.active {
     display: block;
 }
+
 .modal-screen{
     position: fixed;
     background: rgba(0, 0, 0, 0.7);

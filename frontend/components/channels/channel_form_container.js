@@ -8,13 +8,14 @@ const mSTP = (state) => {
             name: "",
             description: "",
             dmChannel: false
-        }
+        },
+        currentUserId: state.session.id
     }
 }
 
 const mDTP = (dispatch) => {
     return {
-        createChannel: (channel) => dispatch(createChannel(channel))
+        createChannel: (channel, userId) => dispatch(createChannel(channel, userId))
     }
 }
 
