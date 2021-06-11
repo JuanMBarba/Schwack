@@ -56,9 +56,29 @@ const createConnection = (currentUserId, channelId, dispatch) => {
 
 ```
 - In the frontend whenever the user logs in they are immidiately subscribed to all their channels chats
-    - The code above the what is run to subscribe them to the channel stream in the backend
-- Through this they only receive messages from channels they are subscribed to
-- They are also subscribed to the new channel they create or join 
+    - The code above is what is run to subscribe them to the channel stream in the backend
+    - They are also subscribed to the a channel they create or join 
+
+``` javascript
+class ChatChannel < ApplicationCable::Channel
+  def subscribed
+    @channel = Channel.find_by(id: params[:id])
+    stream_for @channel if @channel
+  end
+
+  def speak(data)
+    socket = data
+    @channel = Channel.find_by(id: data["message"]["channelId"])
+    ChatChannel.broadcast_to(@channel, socket)
+  end
+
+  def unsubscribed
+    # Any cleanup needed when channel is unsubscribed
+  end
+end
+```
+- The backend sets up a different chat stream for each channel and broadcasts messages back to the specified channel's subscribers
+- Through this users only receive messages from channels they are subscribed to
 
 ## Future Directions
 
