@@ -83,3 +83,4 @@ end
 ## Future Directions
 
 - Add direct messaging between 2 or more users
+- Search bar to find specific channel or user to message
