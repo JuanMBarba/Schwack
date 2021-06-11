@@ -3,14 +3,18 @@ import React from "react";
 class ChannelForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.channel;
+        this.state = Object.assign({}, this.props.channel);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(e){
         e.preventDefault();
         this.props.createChannel(this.state, this.props.currentUserId);
-        this.props.switchModalActivity();
+        this.setState({ name: "", description: "" }, () => {
+            // console.log(this.state);
+            this.props.switchModalActivity();
+        });  
+
     }
 
     update(field){
@@ -37,13 +41,13 @@ class ChannelForm extends React.Component {
                     </div>
                     <label>
                         <h2>Name</h2>
-                        <input type="text" onChange={this.update("name")} placeholder="e.g. project-plans, questions"/>
+                        <input type="text" onChange={this.update("name")} placeholder="e.g. project-plans, questions" value={this.state.name}/>
                     </label>
                     <label>
                         <div>
                             <h2>Description <strong>(optional)</strong></h2>
                         </div>
-                        <input type="text" onChange={this.update("description")} placeholder=""/>
+                        <input type="text" onChange={this.update("description")} placeholder="" value={this.state.description}/>
                         <div className="modal-form-sentence">
                             What's this channel about?
                         </div>

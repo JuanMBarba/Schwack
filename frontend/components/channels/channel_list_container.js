@@ -4,6 +4,7 @@ import ChannelList from "./channel_list";
 import {getUsersChannels} from "../../reducers/selectors"
 
 const mSTP = (state) => {
+    // console.log(state.entities.users);
     return {
         channels: getUsersChannels(state.entities.users[state.session.id], state.entities.channels)
         // channels: state.entities.channels

@@ -17,5 +17,5 @@ export const deleteMembership = ( membershipId ) => {
 export const defaultMemberships = (userId) => {
     // console.log(userId);
     return createMembership({userId, channelId: 1})
-        .then(createMembership({ userId, channelId: 2 }));
+        .then(() => createMembership({ userId, channelId: 2 }));
 }

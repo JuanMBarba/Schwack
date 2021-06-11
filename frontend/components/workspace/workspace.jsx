@@ -1,9 +1,11 @@
 import React from "react"
-import { Redirect} from "react-router-dom"
+import {Switch, Redirect} from "react-router-dom"
 import MessageListContainer from "../messages/message_list_container";
 import ChannelListContainer from "../channels/channel_list_container"
 import ChannelFormContainer from "../channels/channel_form_container"
 import { defaultMemberships } from "../../util/membership_api";
+import {ProtectedRoute }from "../../util/route";
+import BrowseChannelListContainer from "../channels/browse_channel_list_container"
 
 class Workspace extends React.Component {
     constructor(props){
@@ -29,10 +31,10 @@ class Workspace extends React.Component {
     }
     renderRedirect(){
         if (this.props.channelId){
-            return (<Redirect to={`/channels/${this.props.channelId}`} />)
+            return ""; //(<Redirect to={`/channels/${this.props.channelId}`} />)
         }
         else if (this.props.currentUserFirstChannel){
-            return <Redirect to={`/channels/${this.props.currentUserFirstChannel}`} />
+            return <Redirect path to={`/channels/${this.props.currentUserFirstChannel}`} />
         }
         else{
             return ""
@@ -40,7 +42,7 @@ class Workspace extends React.Component {
     }
 
     render(){
-        // console.log(this.props.channelId)
+        // console.log(this.props)
         return (
             <div className="workspace-page">
                 {/* { this.props.channelId ? "" : <Redirect to="/channels/1" />} */}
@@ -54,7 +56,11 @@ class Workspace extends React.Component {
                 </div>
                 <div className="workspace-body">
                     <ChannelListContainer switchModalActivity={this.switchModalActivity} />
-                    <MessageListContainer />
+                    <Switch>
+                        <ProtectedRoute exact path="/channels/browse-channels" component={BrowseChannelListContainer}/>
+                        <ProtectedRoute exact path="/channels/:channelId" component={MessageListContainer}/>
+                    </Switch>
+                    {/* <MessageListContainer /> */}
                 </div>
                 {/* <div className=".modal">
                     <div class="modal-screen"></div>

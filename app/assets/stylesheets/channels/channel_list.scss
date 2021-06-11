@@ -13,6 +13,8 @@
 .channel-list{
     display: flex;
     flex-direction: column;
+    height: 77vh;
+    overflow-y: scroll;
     // align-items: flex-end;
     .symbol-box {
         padding: 0px 5px 0px 5px;
@@ -23,7 +25,6 @@
         &.plus-symbol {
             background-color: $dark-blue;
         }
-
     }
 
     li {
@@ -32,6 +33,7 @@
         white-space: nowrap;
         padding: 5px;
         padding-left: 15px;
+        padding-right: 10px;
         cursor: pointer;
     }
     li:hover {
@@ -46,9 +48,83 @@
 }
 
 .channel-list-header {
-    font-weight: 700;
+    // font-weight: 700;
     padding: 5px;
     padding-left: 10px;
+}
+
+.browse-channel-link {
+    // font-weight: 700;
+    padding: 5px;
+    padding-left: 10px;
+    &:hover{
+        background-color: $grey-blue;
+    }
+}
+
+.browsing .browse-channel-link{
+    background-color: $dark-blue;
+}
+
+.browse-channel-list{
+    height: 87vh;
+    overflow-y: scroll;
+    // li{
+    //     padding: 10px;
+    //     // padding-bottom: 30px;
+    //     &:hover{
+    //         background-color: whitesmoke;
+    //     }
+    // }
+}
+.browse-channel-list-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: max-content;
+    &:hover{
+        background-color: whitesmoke;
+        height: min-content;
+    }
+    min-height: initial;
+    // background-color: red;
+    button{
+        display: none;
+        padding: 5px;
+        // height: 10px;
+    }
+    &:hover{
+        button{
+            display: block;
+            cursor: pointer;
+            background-color: $dark-blue;
+            color: white;
+            border-radius: 3px;
+            padding: 5px;
+            height: min-content;
+            &:hover{
+                background-color: $darker-blue;
+            }
+            &.joined{
+                background-color: lightgrey;
+                color: grey;
+                cursor: initial;
+            }
+        }
+    }
+}
+
+.channel-name-description {
+    h2{
+        font-weight: 600;
+        padding: 5px;
+    }
+    p{
+        font-size: medium;
+        color: grey;
+        padding: 5px;
+    }
 }
 
 .workspace-logo {

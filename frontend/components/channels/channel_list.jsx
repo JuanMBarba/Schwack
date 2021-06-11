@@ -9,6 +9,7 @@ class ChannelList extends React.Component {
     
     render(){
         const { channels } = this.props;
+        // console.log(channels);
         let channel_list = Object.values(channels).map((channel, index) => {
             return (
                 <NavLink key={index} activeClassName="current-channel" to={`/channels/${channel.id}`}>
@@ -25,6 +26,11 @@ class ChannelList extends React.Component {
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Solid_unicursal_hexagram.svg/1280px-Solid_unicursal_hexagram.svg.png" src-alt="logo img" />
                     <h2>schwack</h2>
                 </div>
+                <NavLink activeClassName="browsing" to="/channels/browse-channels">
+                    <div onClick={() => this.props.fetchChannels()}className="browse-channel-link">
+                        Browse Channels
+                    </div>
+                </NavLink>
                 <div className="channel-list-header">
                     Channels
                 </div>

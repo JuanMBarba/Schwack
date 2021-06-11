@@ -4,7 +4,7 @@ const selectSpeak = (data, channelId) => {
         // console.log(identifier.id);
         // console.log(Number(channelId));
         if (identifier.id === Number(channelId )){
-            console.log("success")
+            // console.log("success")
             App.cable.subscriptions.subscriptions[i].speak(data);
         }
     }

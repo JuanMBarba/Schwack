@@ -20,6 +20,7 @@ const App = () => {
                 {/* Need Route to workspace instead of liveChat */}
                 <ProtectedRoute exact path='/channels' component={WorkspaceContainer} />
                 <ProtectedRoute path='/channels/:channelId' component={WorkspaceContainer} />
+                <ProtectedRoute path='/channels/browse-channels' component={WorkspaceContainer} />
                 {/* <ProtectedRoute path='/liveChat' component={MessageListContainer} /> */}
                 <Redirect to="/"/>
             </Switch>
