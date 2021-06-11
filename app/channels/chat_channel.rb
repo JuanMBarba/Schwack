@@ -6,7 +6,6 @@ class ChatChannel < ApplicationCable::Channel
 
   def speak(data)
     socket = data
-    p data
     @channel = Channel.find_by(id: data["message"]["channelId"])
     ChatChannel.broadcast_to(@channel, socket)
   end
