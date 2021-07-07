@@ -20,6 +20,18 @@ class ChannelList extends React.Component {
                 </NavLink >
             )
         })
+
+        let dm_list = Object.values(channels).map((channel, index) => {
+            return (
+                <NavLink key={index} activeClassName="current-channel" to={`/channels/${channel.id}`}>
+                    <li key={index}>
+                        <div className="symbol-box"><i class="fas fa-user"></i></div>
+                        {channel.name}
+                    </li>
+                </NavLink >
+            )
+        })
+
         return (
             <div className="channel-list-container">
                 <div className="workspace-logo">
@@ -45,6 +57,7 @@ class ChannelList extends React.Component {
                     Direct Messages
                 </div>
                 <ul className="channel-list">
+                    {dm_list}
                 </ul>
             </div>
         )
