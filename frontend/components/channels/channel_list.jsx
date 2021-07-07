@@ -10,26 +10,31 @@ class ChannelList extends React.Component {
     render(){
         const { channels } = this.props;
         // console.log(channels);
-        let channel_list = Object.values(channels).map((channel, index) => {
-            return (
-                <NavLink key={index} activeClassName="current-channel" to={`/channels/${channel.id}`}>
-                    <li key={index}>
-                        <div className="symbol-box">#</div>
-                        {channel.name}
-                    </li>
-                </NavLink >
-            )
-        })
 
-        let dm_list = Object.values(channels).map((channel, index) => {
-            return (
-                <NavLink key={index} activeClassName="current-channel" to={`/channels/${channel.id}`}>
-                    <li key={index}>
-                        <div className="symbol-box"><i class="fas fa-user"></i></div>
-                        {channel.name}
-                    </li>
-                </NavLink >
-            )
+        let channelList = [];
+        let dmList = [];
+        Object.values(channels).forEach((channel, index) => {
+            // console.log(channel)
+            if (channel.dmChannel){
+                dmList.push(
+                    <NavLink key={index} activeClassName="current-channel" to={`/channels/${channel.id}`}>
+                        <li key={index}>
+                            <div className="symbol-box"><i className="fas fa-user"></i></div>
+                            {channel.name}
+                        </li>
+                    </NavLink >
+                )
+            }
+            else{
+                channelList.push(
+                    <NavLink key={index} activeClassName="current-channel" to={`/channels/${channel.id}`}>
+                        <li key={index}>
+                            <div className="symbol-box">#</div>
+                            {channel.name}
+                        </li>
+                    </NavLink >
+                )
+            }
         })
 
         return (
@@ -47,7 +52,7 @@ class ChannelList extends React.Component {
                     Channels
                 </div>
                 <ul className="channel-list">
-                    {channel_list}
+                    {channelList}
                     <li onClick={() => this.props.switchModalActivity()} className="add-channel-button">
                         <div className="symbol-box">+</div>
                         Add channels
@@ -57,7 +62,7 @@ class ChannelList extends React.Component {
                     Direct Messages
                 </div>
                 <ul className="channel-list">
-                    {dm_list}
+                    {dmList}
                 </ul>
             </div>
         )
