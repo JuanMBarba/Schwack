@@ -41,6 +41,11 @@ class ChannelList extends React.Component {
                         Add channels
                     </li>
                 </ul>
+                <div className="channel-list-header">
+                    Direct Messages
+                </div>
+                <ul className="channel-list">
+                </ul>
             </div>
         )
     }
