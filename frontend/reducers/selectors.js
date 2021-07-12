@@ -13,7 +13,7 @@ export const getUsersChannels = (currentUser, channels) => {
 
 export const getChannelMessages = (messages, channelId) => {
     
-    let channelMessages = []
+    let channelMessages = [];
     for (let id in messages){
         // console.log(channelMessages);
         // console.log(messages[id].channelId);
@@ -24,4 +24,15 @@ export const getChannelMessages = (messages, channelId) => {
     }
     // console.log(channelMessages)
     return channelMessages;
+}
+
+export const getDMChannelUserNames = (users, userIds, currentUserId) => {
+    let displayNames = [];
+    for (let i = 0; i < userIds.length; i++) {
+        //console.log(users[userIds[i]])
+        if (users[userIds[i]] && currentUserId !== userIds[i]){
+            displayNames.push(users[userIds[i]].displayName)
+        }
+    }
+    return displayNames;
 }

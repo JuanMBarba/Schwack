@@ -66,7 +66,7 @@ class MessageList extends React.Component{
             //instead of channel name
             return (
                 <div className="channel-header">
-                    <i className="fas fa-user"></i> {this.props.currentChannel ? this.props.currentChannel.name : ""}
+                    <i className="fas fa-user"></i> {this.props.getDMDisplayNames(this.props.currentChannel.userIds)}
                 </div>
             );
 

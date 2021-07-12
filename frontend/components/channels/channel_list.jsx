@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom"
+import { getDMChannelUserNames } from "../../reducers/selectors";
 
 class ChannelList extends React.Component {
     componentDidMount(){
@@ -20,7 +21,7 @@ class ChannelList extends React.Component {
                     <NavLink key={index} activeClassName="current-channel" to={`/channels/${channel.id}`}>
                         <li key={index}>
                             <div className="symbol-box"><i className="fas fa-user"></i></div>
-                            {channel.name}
+                            {this.props.getDMDisplayNames(channel.userIds)}
                         </li>
                     </NavLink >
                 )
