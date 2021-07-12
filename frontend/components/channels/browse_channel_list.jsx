@@ -17,20 +17,27 @@ class BrowseChannelList extends React.Component {
     render(){
 
         const channelList = this.props.channels.map((channel, index) => {
-            return (
-                <li key={index} className="browse-channel-list-item">
-                    <div className="channel-name-description">
-                        <h2>
-                            {channel.name}
-                        </h2>
-                        <p>
-                            {channel.description}
-                        </p>
-                    </div>
-                    {this.props.usersChannels.includes(channel.id) ? <button className="join-button joined">Joined</button> : <button onClick={this.handleJoin(channel.id)} className="join-button">Join</button>}
-                </li>
-            )
+            if (!channel.dmChannel){
+                return (
+                    <li key={index} className="browse-channel-list-item">
+                        <div className="channel-name-description">
+                            <h2>
+                                {channel.name}
+                            </h2>
+                            <p>
+                                {channel.description}
+                            </p>
+                        </div>
+                        {this.props.usersChannels.includes(channel.id) ? <button className="join-button joined">Joined</button> : <button onClick={this.handleJoin(channel.id)} className="join-button">Join</button>}
+                    </li>
+                )
+            }
         })
+
+        // May need to filter out undefined in channel list
+        // channelList = channelList.filter((channel) => {
+        //      channel !== undefined;
+        // })
 
         return (
             <div className="message-list-container">

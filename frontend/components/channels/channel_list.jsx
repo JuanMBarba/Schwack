@@ -10,16 +10,33 @@ class ChannelList extends React.Component {
     render(){
         const { channels } = this.props;
         // console.log(channels);
-        let channel_list = Object.values(channels).map((channel, index) => {
-            return (
-                <NavLink key={index} activeClassName="current-channel" to={`/channels/${channel.id}`}>
-                    <li key={index}>
-                        <div className="symbol-box">#</div>
-                        {channel.name}
-                    </li>
-                </NavLink >
-            )
+
+        let channelList = [];
+        let dmList = [];
+        Object.values(channels).forEach((channel, index) => {
+            // console.log(channel)
+            if (channel.dmChannel){
+                dmList.push(
+                    <NavLink key={index} activeClassName="current-channel" to={`/channels/${channel.id}`}>
+                        <li key={index}>
+                            <div className="symbol-box"><i className="fas fa-user"></i></div>
+                            {channel.name}
+                        </li>
+                    </NavLink >
+                )
+            }
+            else{
+                channelList.push(
+                    <NavLink key={index} activeClassName="current-channel" to={`/channels/${channel.id}`}>
+                        <li key={index}>
+                            <div className="symbol-box">#</div>
+                            {channel.name}
+                        </li>
+                    </NavLink >
+                )
+            }
         })
+
         return (
             <div className="channel-list-container">
                 <div className="workspace-logo">
@@ -35,11 +52,17 @@ class ChannelList extends React.Component {
                     Channels
                 </div>
                 <ul className="channel-list">
-                    {channel_list}
+                    {channelList}
                     <li onClick={() => this.props.switchModalActivity()} className="add-channel-button">
                         <div className="symbol-box">+</div>
                         Add channels
                     </li>
+                </ul>
+                <div className="channel-list-header">
+                    Direct Messages
+                </div>
+                <ul className="channel-list">
+                    {dmList}
                 </ul>
             </div>
         )

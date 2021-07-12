@@ -3,8 +3,8 @@ export const getUsersChannels = (currentUser, channels) => {
 
     if (currentUser.channelIds){
             for (let i = 0; i < currentUser.channelIds.length; i++) {
-            if (channels[currentUser.channelIds[i]]){
-                userChannels.push(channels[currentUser.channelIds[i]])
+                if (channels[currentUser.channelIds[i]]){
+                    userChannels.push(channels[currentUser.channelIds[i]])
             }
     }}
 

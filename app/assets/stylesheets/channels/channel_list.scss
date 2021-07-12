@@ -4,17 +4,22 @@
 
 .channel-list-container {
     width: 200px;
-    // background-color: red;
     border: 1px solid $greyer-blue;
     border-top: none;
     // background-color: red;
+    height: 95vh;
+    overflow-y: scroll;
+}
+
+.dm-list-header{
+    background-color: red;
 }
 
 .channel-list{
     display: flex;
     flex-direction: column;
-    height: 77vh;
-    overflow-y: scroll;
+    // height: 77vh;
+    
     // align-items: flex-end;
     .symbol-box {
         padding: 0px 5px 0px 5px;

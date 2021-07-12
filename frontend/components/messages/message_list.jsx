@@ -60,6 +60,25 @@ class MessageList extends React.Component{
         this.bottom.current.scrollIntoView();
     }
 
+    channelHeader() {
+        if (this.props.currentChannel && this.props.currentChannel.dmChannel){
+            //Temporary placeholder, will update to display users in channel
+            //instead of channel name
+            return (
+                <div className="channel-header">
+                    <i className="fas fa-user"></i> {this.props.currentChannel ? this.props.currentChannel.name : ""}
+                </div>
+            );
+
+        } else {
+            return (
+                <div className="channel-header">
+                    # {this.props.currentChannel ? this.props.currentChannel.name : ""}
+                </div>
+            );
+        }
+    }
+
     render(){
         const { messages, users } = this.props;
         
@@ -71,6 +90,7 @@ class MessageList extends React.Component{
                 </li>
             )
         })
+
         // console.log(this.props)
         return (
             // Made a temp div in order to have a header here
@@ -82,9 +102,7 @@ class MessageList extends React.Component{
                 //         {/* <button className="header-button" onClick={() => this.props.logout()}>LOGOUT</button> */}
                 // {/* </div> */}
                 <div className="message-list-container">
-                    <div className="channel-header">
-                    # {this.props.currentChannel ? this.props.currentChannel.name : ""}
-                    </div>
+                    {this.channelHeader()}
                     
                     <ul className="message-list">
                         {messageList}
