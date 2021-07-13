@@ -1,0 +1,123 @@
+.modal {
+    display: none;
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal-screen{
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    &.transparent{
+        background-color: transparent;
+    }
+}
+
+.modal-form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    // align-items: center;
+    z-index: 3;
+    background: white;
+    border-radius: 10px;
+    width: 500px;
+    height: 420px;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    top: 0%;
+    margin: auto;
+    // justify-self: center;
+    padding: 30px;
+    box-shadow: 0 0 4px #000000;
+}
+
+.modal-form label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    h2 {
+        font-size:medium;
+        margin-bottom: 3px;
+    }
+    strong {
+        font-size: small;
+        color: grey;
+    }
+    input {
+        font-size: large;
+        border-radius: 3px;
+        border: 1px solid grey;
+        padding: 10px;
+    }
+    input:focus {
+        border: 1px solid $darker-blue;
+        box-shadow: 0 0 5px $dark-blue;
+    }
+}
+
+.modal-form-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    h1{
+        font-weight: 700;
+        font-size: x-large;
+    }
+    div{
+        font-weight: 400;
+        color: grey;
+        font-size: x-large;
+        cursor: pointer;
+        // background-color: $greyer-blue;
+        padding: 0px 4px 0px 4px;
+        border-radius: 3px;
+    }
+
+    div:hover{
+        color: black;
+        background-color: whitesmoke;
+    }  
+}
+
+.modal-form-sentence {
+    font-size: small;
+    color: grey;
+    margin: 10px;
+    margin-bottom: 15px;
+}
+
+// .modal-form-button {
+//     // cursor: pointer;
+//     align-self: flex-end;
+//     font-size: medium;
+//     font-weight: 700;
+//     background-color:lightgrey;
+//     color:grey;
+//     border-radius: 3px;
+//     padding: 7px 15px;
+// }
+
+.modal-form-button {
+    cursor: pointer;
+    align-self: flex-end;
+    font-size: medium;
+    font-weight: 700;
+    background-color: $darker-blue;
+    color: white;
+    border-radius: 3px;
+    padding: 7px 15px;
+}
+
+.modal-form-button:hover{
+    background-color: $dark-blue;
+    color: white;
+}
