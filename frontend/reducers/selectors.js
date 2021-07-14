@@ -36,3 +36,19 @@ export const getDMChannelUserNames = (users, userIds, currentUserId) => {
     }
     return displayNames;
 }
+
+export const searchUsers = (users, searchTerm, currentUserId) => {
+    let searched = [];
+    for (let i = 0; i < users.length; i++) {
+        if((users[i].id !== currentUserId) && (users[i].displayName.toLowerCase().search(searchTerm.toLowerCase()) >= 0)){
+            searched.push(users[i]);
+            // console.log(users[i].displayName.toLowerCase().search(searchTerm.toLowerCase()) >= 0);
+            // console.log(users[i].displayName.toLowerCase().search(searchTerm.toLowerCase()));
+        }
+    }
+    
+    // console.log(users);
+    // console.log(currentUserId);
+    // console.log(searchTerm);
+    return searched;
+}

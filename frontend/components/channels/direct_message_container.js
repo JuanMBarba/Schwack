@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 import DirectMessage from "./direct_message";
 import { fetchUsers } from "../../actions/user";
+import { searchUsers } from "../../reducers/selectors";
 
 const mSTP = (state) => {
     return {
-        
+        searchUsers:(searchTerm) => searchUsers(Object.values(state.entities.users), searchTerm, state.session.id)
     }
 }
 
