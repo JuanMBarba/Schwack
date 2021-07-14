@@ -153,5 +153,43 @@
     padding: 10px;
     padding-top: 15px;
     font-weight: 700;
+    
+    &.dm-search{
+        
+        border-top: none;
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        div{
+            position: relative;
+            width: 100%;
+        }
+        input {
+            margin-left: 10px;
+            height: 80%;
+            width: 100%;
+        }
+    }
+}
+
+.searched-items{
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid $grey-blue;
+    max-height: 30vh;
+    top: 4vh;
+    // bottom: -4vh;
+    left: 0;
+    right: 0;
+    padding-top: 10px;
+    overflow-y: scroll;
+    li{
+        height: 5vh;
+        align-items: center;
+    }
+    li:hover {
+        background-color: $darker-blue;
+    }
 }
 

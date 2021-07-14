@@ -121,3 +121,13 @@
     background-color: $dark-blue;
     color: white;
 }
+
+.modal-search{
+    position: absolute;
+    top: 0;
+    width: 45vw;
+    left: 0;
+    right: 0;
+    background-color: black;
+    // text-align: center;
+}

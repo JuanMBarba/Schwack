@@ -1,12 +1,13 @@
 import React from "react"
-import {Switch, Redirect} from "react-router-dom"
+import {Switch, Redirect, NavLink} from "react-router-dom";
 import MessageListContainer from "../messages/message_list_container";
 import ChannelListContainer from "../channels/channel_list_container"
 import ChannelFormContainer from "../channels/channel_form_container"
 import { defaultMemberships } from "../../util/membership_api";
 import {ProtectedRoute }from "../../util/route";
 import BrowseChannelListContainer from "../channels/browse_channel_list_container";
-import SearchModalContainer from "../search/search_modal_container";
+import DirectMessageContainer from "../channels/direct_message_container";
+// import SearchModalContainer from "../search/search_modal_container";
 
 class Workspace extends React.Component {
     constructor(props){
@@ -63,12 +64,14 @@ class Workspace extends React.Component {
                 {/* <Redirect to="/channels/1" /> */}
                 {/* Need headers here */}
                 <div className="workspace-header">
-                    <div className="search-bar"
-                        onClick={() => this.switchModalActivity("search")}
-                    >
+                    {/* <NavLink > */}
+                        <NavLink className="search-bar" to="/channels/direct-message"
+                        // onClick={() => this.switchModalActivity("search")}
+                        >
                         <i className="fas fa-search"></i> Search Schwack
-                        <SearchModalContainer modalActive={this.state["search"].modalActive} switchModalActivity={() => this.switchModalActivity("search")} />
-                    </div>
+                        {/* <SearchModalContainer modalActive={this.state["search"].modalActive} switchModalActivity={() => this.switchModalActivity("search")} /> */}
+                    </NavLink>
+                    {/* </NavLink> */}
                     <strong className="workspace-welcome">Welcome, {this.props.currentUser.displayName}</strong>
                     <button className="header-button" onClick={() => this.props.logout()}>LOGOUT</button>
                 </div>
@@ -76,6 +79,7 @@ class Workspace extends React.Component {
                     <ChannelListContainer switchModalActivity={() => this.switchModalActivity("channel")} />
                     <Switch>
                         <ProtectedRoute exact path="/channels/browse-channels" component={BrowseChannelListContainer}/>
+                        <ProtectedRoute exact path="/channels/direct-message" component={DirectMessageContainer} />
                         <ProtectedRoute exact path="/channels/:channelId" component={MessageListContainer}/>
                     </Switch>
                     {/* <MessageListContainer /> */}
