@@ -64,6 +64,7 @@ class MessageForm extends React.Component {
                         value={this.state.body}
                         onChange={this.update("body")}
                         placeholder={this.props.editing ? "Edit Message" : "Send a message"}
+                        autoFocus
                     />
                     <button>►</button>
                 </form>

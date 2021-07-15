@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 
 class DirectMessage extends React.Component {
     constructor(props){
@@ -6,15 +7,27 @@ class DirectMessage extends React.Component {
         this.state = {
             searchTerm: "",
             searched: [],
-            selected: {}
+            selected: {},
+            message: this.props.message,
+            redirect: -1
         }
         this.update = this.update.bind(this);
+        this.updateBody = this.updateBody.bind(this);
+        this.renderBottom = this.renderBottom.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     update(e){
         e.preventDefault();
         this.setState({searchTerm: e.currentTarget.value});
         this.setState({searched: this.props.searchUsers(e.currentTarget.value) })
+    }
+
+    updateBody(e){
+        e.preventDefault();
+        let message = Object.assign({}, this.state.message);
+        message["body"] = e.target.value;
+        this.setState({message});
     }
 
     componentDidMount(){
@@ -31,6 +44,43 @@ class DirectMessage extends React.Component {
         let selected = this.state.selected;
         delete selected[user.id];
         this.setState({ selected });
+    }
+
+    handleSubmit(e){
+        e.preventDefault();
+        let members = [this.props.currentUserId, ...Object.keys(this.state.selected)];
+        this.props.createDM(members, this.state.message)
+            .then(channelId => this.setState({redirect: channelId}));
+    }
+
+    renderBottom(){
+        if (Object.keys(this.state.selected).length === 0){
+            return ;
+        }
+        else{
+            return (
+                <div>
+                    <div className="dm-spacer">
+
+                    </div>
+
+                    <div className="message-form-container">
+                        <form
+                        onSubmit={this.handleSubmit}
+                        >
+                            <input
+                                type="text"
+                                value={this.state.body}
+                                onChange={this.updateBody}
+                                placeholder="Send a message"
+                            />
+                            <button>►</button>
+                        </form>
+                    </div>
+                </div>
+            );
+            
+        }
     }
 
     render(){
@@ -60,6 +110,7 @@ class DirectMessage extends React.Component {
 
         return (
             <div className="message-list-container">
+                {this.state.redirect === -1 ? "" : <Redirect to={`/channels/${this.state.redirect}`} />}
                 <div className="channel-header">
                     {Object.keys(this.state.selected).length > 0 ? <h2>New Message</h2> : <h2>Send Direct Message</h2>}
                 </div>
@@ -74,7 +125,8 @@ class DirectMessage extends React.Component {
                         type="text" 
                         name="search" 
                         placeholder="Enter Display Name" 
-                        value={this.state.searchTerm}/>
+                        value={this.state.searchTerm}
+                        autoFocus/>
                     
                     <ul className={`searched-items ${this.state.searchTerm.length > 0 ? "" : "hidden" }`}>
                         {/* <li>Hello</li>
@@ -88,23 +140,8 @@ class DirectMessage extends React.Component {
                     
                 </div>
 
-                <div className="dm-spacer">
+                {this.renderBottom()}
                 
-                </div>
-
-                <div className="message-form-container">
-                    <form 
-                    // onSubmit={this.handleSubmit}
-                    >
-                        <input
-                            type="text"
-                            value={this.state.body}
-                            // onChange={this.update("body")}
-                            placeholder="Send a message"
-                        />
-                        <button>►</button>
-                    </form>
-                </div>
             </div>
         )
     }
