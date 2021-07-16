@@ -41,16 +41,32 @@ class Splash extends React.Component {
                     {this.renderHeader()}
                 </div>
                 <div className="splash-body">
-                    <h1>JOIN IN</h1>
-                    <h2>on the</h2>
-                    <h1>WORK CHAT</h1>
-                    <h2>now on</h2>
+                    <div className="splash-logo bigger-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Solid_unicursal_hexagram.svg/1280px-Solid_unicursal_hexagram.svg.png" src-alt="logo img" />
+                        <h2>schwack is where 
+                            <strong>
+                                &nbsp;the future works
+                            </strong>
+                        </h2>
+                    </div>
                     <Link to="/signup">
-                        <div className="splash-logo bigger-logo">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Solid_unicursal_hexagram.svg/1280px-Solid_unicursal_hexagram.svg.png" src-alt="logo img" />
-                            <h2>schwack</h2>
+                        <div className="splash-button join-free">
+                            TRY FOR FREE
                         </div>
                     </Link>
+                </div>
+                <div className="splash-footer">
+                    <div className="right-footer">
+                        <a href="https://github.com/JuanMBarba/Schwack">
+                            <i className="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/juan-barba/">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://angel.co/u/juan-barba-1">
+                            <i class="fab fa-angellist"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         )

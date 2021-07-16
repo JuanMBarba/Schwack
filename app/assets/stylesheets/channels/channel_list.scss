@@ -8,7 +8,6 @@
     border-top: none;
     // background-color: red;
     height: 95vh;
-    overflow-y: scroll;
 }
 
 .dm-list-header{
@@ -18,6 +17,7 @@
 .channel-list{
     display: flex;
     flex-direction: column;
+    // overflow-x: hidden;
     // height: 77vh;
     
     // align-items: flex-end;
@@ -30,16 +30,49 @@
         &.plus-symbol {
             background-color: $dark-blue;
         }
+        &.resize{
+            padding: 0px 2px;
+            // margin: 0px;
+            // background-color: white;
+        }
     }
 
     li {
         // background-color: grey;
+        position: relative;
         display: flex;
-        white-space: nowrap;
+        width: 200px;
         padding: 5px;
         padding-left: 15px;
         padding-right: 10px;
         cursor: pointer;
+        span{
+            width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: rgba($color: #000000, $alpha: 0.9);
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+            
+            /* Position the tooltip text - see examples below! */
+            // overflow: visible;
+            position: absolute;
+            z-index: 2;
+            bottom: 130%;
+        }
+
+        &:hover .tooltiptext{
+            visibility: visible;
+            // top: -10px;
+        }
     }
     li:hover {
         background-color: $grey-blue;
@@ -238,4 +271,9 @@
 
 .dm-spacer{
     height: 69vh;
+}
+
+.lower-channel-list{
+    overflow-y: scroll;
+    height: 87vh;
 }

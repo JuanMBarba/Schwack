@@ -91,6 +91,12 @@
     // margin-bottom: 0px;
     // color: blue;
     font-weight: 700;
+    strong{
+        font-weight: 400;
+        color: grey;
+        // text-decoration: underline;
+        margin-left: 10px;
+    }
 }
 
 .message-form-container button{

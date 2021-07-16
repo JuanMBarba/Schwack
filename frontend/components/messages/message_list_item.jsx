@@ -1,5 +1,6 @@
 import React from "react";
 import MessageFormContainer from "./message_form_container";
+import formatDate from "../../util/date_util";
 
 class MessageListItem extends React.Component {
     constructor(props){
@@ -43,6 +44,7 @@ class MessageListItem extends React.Component {
             <div className="message-item">
                 <div className="message-item-header">
                     {user ? user.displayName : ""}
+                    <strong>{formatDate(new Date(message.updatedAt))}</strong>
                 </div>
                 <div className="message-item-body">
                     {message.body}

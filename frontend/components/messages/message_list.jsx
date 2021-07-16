@@ -2,6 +2,7 @@ import React from "react";
 import MessageFormContainer from "./message_form_container";
 import MessageListItemContainer from "./message_list_item_container";
 
+
 class MessageList extends React.Component{
     constructor(props){
         super(props);
@@ -64,9 +65,10 @@ class MessageList extends React.Component{
         if (this.props.currentChannel && this.props.currentChannel.dmChannel){
             //Temporary placeholder, will update to display users in channel
             //instead of channel name
+            let displayNames = this.props.getDMDisplayNames(this.props.currentChannel.userIds);
             return (
                 <div className="channel-header">
-                    <i className="fas fa-user"></i> {this.props.getDMDisplayNames(this.props.currentChannel.userIds)}
+                    {displayNames.length > 1 ? <i className="fas fa-users"></i> : <i className="fas fa-user"></i>} {displayNames.join(", ")}
                 </div>
             );
 
