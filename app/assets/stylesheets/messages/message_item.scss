@@ -91,6 +91,12 @@
     // margin-bottom: 0px;
     // color: blue;
     font-weight: 700;
+    strong{
+        font-weight: 400;
+        color: grey;
+        // text-decoration: underline;
+        margin-left: 10px;
+    }
 }
 
 .message-form-container button{
@@ -117,6 +123,7 @@
 
 .workspace-header{
     display: flex;
+    position: relative;
     justify-content: flex-end;
     align-items: center;
     height: 5vh;
@@ -138,6 +145,28 @@
         border: 2px solid white;
         // font-weight: 500;
         padding: 2px 7px;
+    }
+    .workspace-welcome {
+        margin-right: 10px;
+        color: white;
+        font-weight: 700;
+    }
+    .search-bar {
+        cursor: pointer;
+        position: absolute;
+        // align-self: center;
+        border-radius: 10px;
+        border: 1px solid white;
+        color: white;
+        width: 40%;
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin: auto;
+        // background-color: red;
+        &:hover{
+            background-color: rgba(0,0,0, 0.1);
+        }
     }
 }
 

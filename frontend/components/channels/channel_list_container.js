@@ -1,12 +1,13 @@
 import {connect} from "react-redux";
 import { fetchChannels } from "../../actions/channel"
 import ChannelList from "./channel_list";
-import {getUsersChannels} from "../../reducers/selectors"
+import {getUsersChannels, getDMChannelUserNames} from "../../reducers/selectors"
 
 const mSTP = (state) => {
     // console.log(state.entities.users);
     return {
-        channels: getUsersChannels(state.entities.users[state.session.id], state.entities.channels)
+        channels: getUsersChannels(state.entities.users[state.session.id], state.entities.channels),
+        getDMDisplayNames: (userIds) => getDMChannelUserNames(state.entities.users, userIds, state.session.id)
         // channels: state.entities.channels
     }
 }

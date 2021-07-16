@@ -1,6 +1,7 @@
 .splash-header {
     display: flex;
     justify-content: space-between;
+    height: 10vh;
     // background-color: rgb(220, 240, 243);
     // height: 8vh;
     border-bottom:  1px solid white;
@@ -79,15 +80,62 @@
     flex-direction: column;
     align-items: center;
     font-size: 75px;
+    height: 80vh;
     // text-transform: uppercase;
 }
 
+.splash-main-message{
+    display: flex;
+}
+
 .bigger-logo{
+    cursor:text;
     display: flex;
     justify-content: center;
     // text-transform: lowercase;
+    width: max-content;
+    margin-top: 20vh;
     font-size: 75px;
     img {
         width: 100px
+    }
+    strong{
+        color: $darker-blue
+    }
+    h2{
+        margin-bottom: 15px;
+    }
+}
+
+.join-free{
+    background-color:$dark-blue;
+    // border: 2px solid white;
+    // font-weight: 500;
+    font-size: 50px;
+    border-radius: 5px;
+    // color: rgb(220, 240, 243);
+    color: white;
+    padding: 20px 50px 20px 50px;
+    // padding: .75rem 1rem;
+    margin: 10px;
+    cursor: pointer;
+    // height: 6vh;
+    text-align: center;
+    &:hover{
+        background-color:$darker-blue;
+    }
+}
+
+.splash-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    border-top: 1px solid white;
+    .right-footer{
+        display: flex;
+        justify-content: space-around;
+        width: 25vw;
+        // background-color: white;
     }
 }
