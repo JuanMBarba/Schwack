@@ -80,7 +80,7 @@
     flex-direction: column;
     align-items: center;
     font-size: 75px;
-    height: 80vh;
+    height: 77vh;
     // text-transform: uppercase;
 }
 
@@ -95,6 +95,8 @@
     // text-transform: lowercase;
     width: max-content;
     margin-top: 20vh;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 75px;
     img {
         width: 100px
@@ -129,6 +131,7 @@
 .splash-footer{
     display: flex;
     justify-content: center;
+    height: 13vh;
     align-items: center;
     font-size: 60px;
     border-top: 1px solid white;
