@@ -4,7 +4,7 @@ import BrowseChannelList from "./browse_channel_list";
 import * as MembershipApiUtil from "../../util/membership_api";
 import { fetchUser } from "../../actions/user"
 
-
+//mSTP
 const mSTP = (state) => {
     return {
         channels: Object.values(state.entities.channels),
