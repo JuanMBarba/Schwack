@@ -52,7 +52,8 @@ class DirectMessage extends React.Component {
         this.props.createDM(members, this.state.message)
             .then(channelId => this.setState({redirect: channelId}));
     }
-
+    // May need to convert this into its own component, might need to reuse
+    // May need to change the way the page is created if dm channel is already created.
     renderBottom(){
         if (Object.keys(this.state.selected).length === 0){
             return ;
